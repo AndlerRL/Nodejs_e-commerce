@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "start-server": "node app.js"
+    "start-server": "node app.js",
+    "scss-compile": "node-sass -rw public/scss/ -o public/css/",
+    "watch": "npm run scss-compile"
   },
   "author": "AndlerRL",
   "license": "ISC",

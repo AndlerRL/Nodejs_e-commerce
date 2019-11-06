@@ -9,24 +9,30 @@
   <link rel="stylesheet" href="/css/index.css">
 </head>
 
-<body>
-  <header class="main-header">
-    <nav class="main-header__nav">
-      <ul class="main-header__item-list">
-        <li class="main-header__item">
-          <a href="/" class="active">Shop</a>
-        </li>
-        <li class="main-header__item">
-          <a href="/admin/add-product">Add Product</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+<body id="app-root" class="theme-light">
+  <div class="app-container">
+    <header class="header-container">
+      <nav class="nav-container">
+        <ul class="nav-container__list-container">
+          <li class="list-container__list-item">
+            <a href="/" class="active">Shop</a>
+          </li>
+          <li class="list-container__list-item">
+            <a href="/admin/add-product">Add Product</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="button primary" onclick="changeThemeHandler(this)">
+        Change theme
+      </button>
+    </header>
+    <main class="main-content__container">
+      <h1 class="title">Shop Page</h1>
 
-  <main>
-    <h1>My products</h1>
-    <p>List of all the products. . .</p>
-  </main>
+      <div>My Product List. . .</div>
+    </main>
+  </div>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
