@@ -1,21 +1,30 @@
 const path = require('path');
 const express = require('express');
+const crypto = require('crypto');
 
 const rootDir = require('../util/path');
 const router = express.Router();
-const data = [];
+const products = [];
 
 // /admin/add-product => GET
 router.get('/add-product', (req, res, next) => {
-  res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
+  res.render('add-product', {
+    pageTitle: 'Add product | Admin',
+    path: '/add-product',
+  })
 });
 
 // /admin/add-product => POST
 router.post('/add-product', (req, res, next) => {
-  data.push(req.body)
-  console.log(data)
+  const date = new Date();
+
+  products.push({
+    ...req.body,
+    id: crypto.createHash('sha1').update(`${date.toDateString()}-${date.toTimeString()}`).digest('hex')
+  });
 
   res.redirect('/')
 })
 
-module.exports = router;
+exports.routes = router;
+exports.products = products;
