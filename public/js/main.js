@@ -1,4 +1,5 @@
 const root = document.getElementById('app-root');
+const goDown = document.getElementById('go-down');
 
 let theme = localStorage.getItem('user-theme');
 
@@ -21,3 +22,11 @@ function changeThemeHandler () {
     localStorage.setItem('user-theme', 'theme-dark');
   }
 }
+
+goDown.addEventListener('click', () => {
+  window.scroll({
+    top: window.innerHeight,
+    left: 0,
+    behavior: 'smooth'
+  })
+})
