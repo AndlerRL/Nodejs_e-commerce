@@ -1,8 +1,24 @@
 <body id="app-root" class="">
   <div class="app-container">
     <header class="header-container">
+      <span class="icon-container icon__secondary menu" onclick="toggleMenuHandler(this)">
+        <i class="fas fa-bars"></i>
+      </span>
+      <div class="logo-container">
+        <div class="logo" onclick="returnHomeHandler(this)"></div>
+      </div>
       <nav class="nav-container">
         <ul class="nav-container__list-container">
+          <li class="list-container__list-item">
+              <span class="items-cart">
+                0
+              </span>
+              <a href="/cart" class="<%= path && path === '/cart' ? 'active' : '' %>">
+                <span class="icon-container icon__secondary">
+                  <i class="fas fa-shopping-cart"></i>
+                </span>
+              </a>
+            </li>
           <li class="list-container__list-item">
             <a href="/" class="<%= path && path === '/' ? 'active' : '' %>">
               Shop
@@ -11,11 +27,6 @@
           <li class="list-container__list-item">
             <a href="/catalog" class="<%= path && path === '/catalog' ? 'active' : '' %>">
               Catalog
-            </a>
-          </li>
-          <li class="list-container__list-item">
-            <a href="/cart" class="<%= path && path === '/cart' ? 'active' : '' %>">
-              Cart
             </a>
           </li>
           <li class="list-container__list-item">
@@ -35,9 +46,69 @@
           </li>
         </ul>
       </nav>
-      <button class="button primary" onclick="changeThemeHandler(this)">
-        Change Theme
-      </button>
+      <span class="icon-container icon__secondary" id="settings">
+        <i class="fas fa-ellipsis-v"></i>
+      </span>
+      <div class="settings-container">
+        <ul class="settings__options-container">
+          <li class="settings__options-list">
+            <span class="option-list__helper"></span>
+            <a href="/authentication">
+              Sign In / Sign Up
+            </a>
+          </li>
+        </ul>
+        <button class="button primary" onclick="changeThemeHandler(this)">
+          Change Theme
+        </button>
+      </div>
     </header>
-
+    <nav class="sidedrawer-container">
+      <ul class="sidedrawer-container__list-container">
+        <li class="list-container__list-item">
+            <span class="items-cart">
+              0
+            </span>
+            <a href="/cart" class="<%= path && path === '/cart' ? 'active' : '' %>">
+              <span class="icon-container icon__secondary">
+                <i class="fas fa-shopping-cart"></i>
+              </span>
+            </a>
+          </li>
+        <li class="list-container__list-item">
+          <a href="/" class="<%= path && path === '/' ? 'active' : '' %>">
+            <span class="list-item__helper"></span>
+            Shop
+          </a>
+        </li>
+        <li class="list-container__list-item">
+          <a href="/catalog" class="<%= path && path === '/catalog' ? 'active' : '' %>">
+            <span class="list-item__helper"></span>
+            Catalog
+          </a>
+        </li>
+        <li class="list-container__list-item">
+          <a href="/admin/edit-product" class="<%= path && path === '/admin/edit-product' ? 'active' : '' %>">
+            <span class="list-item__helper"></span>
+            Edit Product  
+          </a>
+        </li>
+        <li class="list-container__list-item">
+          <a href="/admin/add-product" class="<%= path && path === '/admin/add-product' ? 'active' : '' %>">
+            <span class="list-item__helper"></span>
+            Add Product
+          </a>
+        </li>
+        <li class="list-container__list-item">
+          <a href="/admin/product-list" class="<%= path && path === '/admin/product-list' ? 'active' : '' %>">
+            <span class="list-item__helper"></span>
+            Admin Products
+          </a>
+        </li>
+      </ul>
+      <span class="icon-container icon__secondary back" onclick="toggleMenuHandler(this)">
+        <i class="fas fa-chevron-left"></i>
+      </span>
+    </nav>
+    <div class="backdrop" onclick="toggleMenuHandler(this)"></div>
     <main class="main-content__container">

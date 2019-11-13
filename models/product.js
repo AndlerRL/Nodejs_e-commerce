@@ -9,6 +9,7 @@ const getProductsFromFile = callback => {
   fs.readFile(p, (err, data) => {
     if (!err) {
       callback(JSON.parse(data));
+      console.log(JSON.parse(data));
     } else {
       callback([]);
     }

@@ -1,0 +1,92 @@
+<%- include('../includes/head.ejs')  %>
+</head>
+
+<%- include('../includes/navigation.ejs') %>
+  <h1 class="title">
+    Checkout Page
+  </h1>
+  <form class="checkout-form" action="/checkout" method="POST">
+    <div class="form-control__wrapper">
+      <div class="form-control__inner-wrapper">
+        <div class="form-control">
+          <label for="f_name">
+            First Name <span>*</span>
+          </label>
+          <input type="text" name="f_name" id="f_name" placeholder="John">
+        </div>
+      </div>
+      <div class="form-control__inner-wrapper">
+        <div class="form-control">
+          <label for="l_name">
+            Last Name <span>*</span>
+          </label>
+          <input type="text" name="l_name" id="l_name" placeholder="Doe">
+        </div>
+      </div>
+    </div>
+    <div class="form-control__wrapper">
+      <div class="form-control__inner-wrapper">
+        <div class="form-control">
+          <label for="address_1">
+            Address 1 <span>*</span>
+          </label>
+          <input type="text" name="address_1" id="address_1" placeholder="123 Main ST">
+        </div>
+        <div class="form-control">
+          <label for="address_2">
+            Address 2
+          </label>
+          <input type="text" name="address_2" id="address_2" placeholder="Apt 23A, floor 7">
+        </div>
+        <div class="form-control">
+          <label for="city">
+            City <span>*</span>
+          </label>
+          <input type="text" name="city" id="city" placeholder="San José">
+        </div>
+      </div>
+      <div class="form-control__inner-wrapper">
+        <div class="form-control">
+          <label for="state">
+            State/Province <span>*</span>
+          </label>
+          <input type="text" name="state" id="state" placeholder="California">
+        </div>
+        <div class="form-control">
+          <label for="zip_code">
+            Postal Code <span>*</span>
+          </label>
+          <input type="text" name="zip_code" id="zip_code" placeholder="33502">
+        </div>
+        <div class="form-control">
+          <label for="phone">
+            Contact Phone <span>*</span>
+          </label>
+          <input type="text" name="phone" id="phone" placeholder="303 586-5236">
+        </div>
+      </div>
+    </div>
+    <div class="form-control__wrapper">
+      <div class="form-control">
+        <label for="add_info">
+          Additional Information
+        </label>
+        <textarea rows="5" name="add_info" id="add_info" placeholder="Ring the bell so I can come out."></textarea>
+      </div>
+    </div>
+    <div class="form-control__wrapper">
+      <button class="button secondary" type="submit">
+        <span class="icon-container secondary">
+          <i class="fas fa-times"></i>
+        </span>
+        Back
+      </button>
+      <button class="button secondary" type="submit">
+        <span class="icon-container secondary">
+          <i class="fas fa-dollar-sign"></i>
+        </span>
+        Continue
+      </button>
+    </div>
+  </form>
+<%- include('../includes/end.ejs') %>

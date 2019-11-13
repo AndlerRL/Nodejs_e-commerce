@@ -1,27 +1,108 @@
 @import '../../util/style/theme.scss';
 
+.Delay {
+  opacity: 0;
+  animation-delay: 1.2s !important;
+}
+
+.Long-delay {
+  opacity: 0;
+  animation-delay: 2s !important;
+}
+
+.Zoom-in {
+  animation: zoom-in 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.175) forwards;
+}
+
+.Zoom-out {
+  animation: zoom-out 1.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
 .Fade-up {
   animation: fade-up 1.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
 }
 
 .Fade-right {
   opacity: 0;
-  animation: fade-right 1.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards 1000ms;
+  animation: fade-right 1.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
 }
 
 .Beat {
   opacity: 0;
-  animation: beat 2s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite 2000ms;
+  animation: beat 2s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+}
+
+.Show-Settings {
+  animation: fade-up 0.75s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+.Hide-Settings {
+  animation: fade-up-hide 0.75s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+.Half-Spin {
+  animation: half-spin .33s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+.Half-Spin-Return {
+  animation: half-spin-return 0.33s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+.Show-Menu {
+  z-index: 1700 !important;
+  animation: fade-left 0.66s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+.Hide-Menu {
+  z-index: 1700 !important;
+  animation: fade-left-hide 0.66s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+.Show-Backdrop {
+  opacity: 1;
+  display: block;
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes zoom-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(-25vh);
+    transform: translateY(-100vh);
   }
   to {
     opacity: 1;
     transform: translateY(0vh);
+  }
+}
+
+@keyframes fade-up-hide {
+  from {
+    opacity: 1;
+    transform: translateY(0vh);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100vh);
   }
 }
 
@@ -48,5 +129,45 @@
   100% {
     opacity: 0;
     transform: scale(1);
+  }
+}
+
+@keyframes half-spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(90deg);
+  }
+}
+
+@keyframes half-spin-return {
+  from {
+    transform: rotateZ(90deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(-120vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+}
+
+@keyframes fade-left-hide {
+  from {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-120vw);
   }
 }
