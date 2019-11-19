@@ -30,11 +30,6 @@
             </a>
           </li>
           <li class="list-container__list-item">
-            <a href="/admin/edit-product" class="<%= path && path === '/admin/edit-product' ? 'active' : '' %>">
-              Edit Product  
-            </a>
-          </li>
-          <li class="list-container__list-item">
             <a href="/admin/add-product" class="<%= path && path === '/admin/add-product' ? 'active' : '' %>">
               Add Product
             </a>
@@ -49,20 +44,20 @@
       <span class="icon-container icon__secondary" id="settings">
         <i class="fas fa-ellipsis-v"></i>
       </span>
-      <div class="settings-container">
-        <ul class="settings__options-container">
-          <li class="settings__options-list">
-            <span class="option-list__helper"></span>
-            <a href="/authentication">
-              Sign In / Sign Up
-            </a>
-          </li>
-        </ul>
-        <button class="button primary" onclick="changeThemeHandler(this)">
-          Change Theme
-        </button>
-      </div>
     </header>
+    <div class="settings-container">
+      <ul class="settings__options-container">
+        <li class="settings__options-list">
+          <span class="option-list__helper"></span>
+          <a href="/authentication">
+            Sign In / Sign Up
+          </a>
+        </li>
+      </ul>
+      <button class="button primary" onclick="changeThemeHandler(this)">
+        Change Theme
+      </button>
+    </div>
     <nav class="sidedrawer-container">
       <ul class="sidedrawer-container__list-container">
         <li class="list-container__list-item">
@@ -88,9 +83,9 @@
           </a>
         </li>
         <li class="list-container__list-item">
-          <a href="/admin/edit-product" class="<%= path && path === '/admin/edit-product' ? 'active' : '' %>">
+          <a href="/orders" class="<%= path && path === '/orders' ? 'active' : '' %>">
             <span class="list-item__helper"></span>
-            Edit Product  
+            Orders
           </a>
         </li>
         <li class="list-container__list-item">

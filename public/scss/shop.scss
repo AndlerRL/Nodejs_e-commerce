@@ -102,3 +102,122 @@
     justify-content: space-between;
   }
 }
+
+.product-detail__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+
+  .product-detail__img-container,
+  .product-detail__description-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 40rem;
+    padding: 32px;
+  }
+
+  .product-detail__img-container {
+    border-radius: $radii;
+
+    @include themify($themes) {
+      background-color: themed('primary50');
+      box-shadow: themed('boxShadowLight');
+
+      .img-container__main {
+        width: 100%;
+        height: calc(30rem - 32px);
+        background-color: themed('primary100');
+        border-radius: $radii;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        > img {
+          width: auto;
+          height: 100%;
+        }
+      }
+
+      .img-container__sub-imgs {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        height: calc(10rem - 32px);
+        width: 100%;
+
+        .sub-img__container {
+          width: 21%;
+          height: 75%;
+          border-radius: $radii;
+          background-color: themed('primary100');
+          display: flex;
+          align-items: center;
+
+          > img {
+            height: 100%;
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .description-container__title {
+    text-transform: uppercase;
+  }
+
+  .description-container__main,
+  .description-container__more-info {
+    font-family: sans-serif;
+    line-height: 1.66;
+    width: 100%;
+  }
+
+  .description-container__options-container {
+    margin: 1.5rem 0;
+    font-family: sans-serif;
+    width: 100%;
+
+    .options-container__price {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      letter-spacing: 1px;
+
+      .price__main {
+        font-size: $xx-large;
+        margin: 1rem 0;
+        
+        @include themify($themes) {
+          color: themed('secondary400')
+        }
+      }
+
+      .price__discount {
+        font-size: $xx-large + 8px;
+        margin: 1rem 0;
+        
+        @include themify($themes) {
+          color: themed('secondary400')
+        }
+      }
+    }
+
+    .options-container__actions {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 3.5rem 0 0;
+
+      > form {
+        width: 50%;
+      }
+    }
+  }
+}

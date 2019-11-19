@@ -1,12 +1,5 @@
 const Product = require('../models/product');
 
-let productID = null;
-
-if (typeof localStorage === "undefined" || localStorage === null) {
-  LocalStorage = require('node-localstorage').LocalStorage;
-  localStorage = new LocalStorage('./data');
-}
-
 exports.getHome = (req, res, next) => {
   Product.fetchAll(products => {
     res.render('shop/index', {
@@ -28,14 +21,15 @@ exports.getProducts = (req, res, next) => {
 }
 
 exports.getProductDetail = (req, res, next) => {
-  console.log('P R O D U C T I D', productID)
-  Product.fetchAll(products => {
+  const id = req.params.productId;
+
+  Product.findById(id, product => {
     res.render('shop/product-detail', {
-      products,
+      product,
       pageTitle: 'Shop | Product Detail',
-      path: '/product-detail'
-    })
-  })
+      path: `/catalog/${id}`
+    });
+  });
 }
 
 exports.getCart = (req, res, next) => {
@@ -44,6 +38,16 @@ exports.getCart = (req, res, next) => {
       products,
       pageTitle: 'Shop | Cart',
       path: '/cart'
+    })
+  })
+}
+
+exports.getOrders = (req, res, next) => {
+  Product.fetchAll(products => {
+    res.render('shop/orders', {
+      products,
+      pageTitle: 'Shop | Orders',
+      path: '/orders'
     })
   })
 }

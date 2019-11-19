@@ -18,7 +18,12 @@ $themes: (
     linkTextColor: #00b0ff,
     linkTextHoverColor: #40c4ff,
     buttonTextTransform: none,
-    boxShadowMain: -2px 4px 6px #2223,
+    boxShadowLight: (0 3px 3px 0 #2221,
+      0 1px 7px 0 #2221,
+      0 3px 1px -1px #2222),
+    boxShadowMain: (0 4px 5px 0 #2221,
+      0 1px 10px 0 #2221,
+      0 2px 4px -1px #2223),
   ),
   dark: (
     primary50: #263238,
@@ -40,6 +45,7 @@ $themes: (
     linkTextHoverColor: #40c4ff,
     buttonTextTransform: uppercase,
     boxShadowMain: none,
+    boxShadowLight: none,
   )
 );
 
@@ -49,6 +55,7 @@ $small: 12px;
 $medium: 14px;
 $large: 16px;
 $x-large: 20px;
+$xx-large: 26px;
 /** FONT SIZES END **/
 
 $radii: 5px;

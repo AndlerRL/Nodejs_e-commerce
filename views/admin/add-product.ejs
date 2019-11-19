@@ -2,30 +2,43 @@
 </head>
 
 <%- include('../includes/navigation.ejs') %>
-  <h1 class="title">
-    Fill up the form to add a product to the shop.
-  </h1>
-  <form class="product-form" action="/admin/add-product" method="POST">
-    <div class="form-control">
-      <label for="title">
-        Title
-      </label>
-      <input type="text" name="title" id="title">
-    </div>
-    <div class="form-control">
-      <label for="price">
-        Price
-      </label>
-      <input type="text" name="price" id="price">
-    </div>
-    <div class="form-control">
-      <label for="description">
-        Description
-      </label>
-      <input type="text" name="description" id="description">
-    </div>
-    <button class="button secondary" type="submit">
-      Add Product
-    </button>
-  </form>
+  <div class="wrapper">
+    <h1 class="title" align="center">
+      Fill up the form to add a product to the shop.
+    </h1>
+    <form class="product-form" action="/admin/add-product" method="POST">
+      <div class="form-control">
+        <label for="title">
+          Title
+        </label>
+        <input type="text" name="title" id="title">
+      </div>
+      <div class="form-control">
+        <input type="file" name="imageUrl" id="imageUrl" data-multiple-caption="{count} files selected" multiple accept=".svg, .png">
+        <label for="imageUrl">
+          <span class="icon-container secondary">
+              <i class="fas fa-upload"></i>
+          </span>
+          Add Image
+        </label>
+        <div class="img-preview__container">
+        </div>
+      </div>
+      <div class="form-control">
+        <label for="price">
+          Price
+        </label>
+        <input type="text" name="price" id="price">
+      </div>
+      <div class="form-control">
+        <label for="description">
+          Description
+        </label>
+        <textarea rows="5" name="description" id="description"></textarea>
+      </div>
+      <button class="button secondary" type="submit">
+        Add Product
+      </button>
+    </form>
+  </div>
 <%- include('../includes/end.ejs') %>

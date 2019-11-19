@@ -9,7 +9,6 @@ const getProductsFromFile = callback => {
   fs.readFile(p, (err, data) => {
     if (!err) {
       callback(JSON.parse(data));
-      console.log(JSON.parse(data));
     } else {
       callback([]);
     }
@@ -17,16 +16,18 @@ const getProductsFromFile = callback => {
 }
 
 module.exports = class Product {
-  constructor(t, p, d) {
+  constructor(t, p, d, imgUrl) {
     const date = new Date();
 
     this.title = t;
     this.price = p;
     this.description = d;
-    this.id = crypto.createHash('md5').update(`${date.toDateString()}-${date.toTimeString()}`).digest('hex')
+    this.imageUrl = imgUrl;
   }
 
   save() {
+    this.id = crypto.createHash('md5').update(`${date.toDateString()}-${date.toTimeString()}`).digest('hex');
+
     getProductsFromFile(products => {
       products.push(this);
 
@@ -38,5 +39,13 @@ module.exports = class Product {
 
   static fetchAll(callback) {
     getProductsFromFile(callback);
+  }
+
+  static findById(id, callback) {
+    getProductsFromFile(products => {
+      const product = products.find(p => p.id === id)
+
+      callback(product);
+    });
   }
 }
