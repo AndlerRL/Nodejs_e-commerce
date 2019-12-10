@@ -1,0 +1,18 @@
+<form action="/add-to-cart" method="post">
+  <button class="button primary">
+    <span class="icon-container">
+      <i class="fas fa-cart-plus"></i>
+    </span>
+    Add to cart
+  </button>
+  <input type="hidden" name="productId" value="<%= product.id %>">
+</form>
+<form action="/save-for-later" method="post">
+  <button class="button primary">
+    <span class="icon-container">
+      <i class="far fa-heart"></i>
+    </span>
+    Save for Later
+  </button>
+  <input type="hidden" name="productId" value="<%= product.id %>">
+</form>

@@ -27,13 +27,14 @@
           </p>
         </div>
         <div class="card__actions">
-          <a href="/admin/edit-product" class="button secondary">
+          <a href="/admin/edit-product/<%= product.id %>?edit=true" class="button secondary">
             Edit
           </a>
           <form action="/admin/delete-product" method="POST">
             <button type="submit" class="button secondary">
               Delete
             </button>
+            <input type="hidden" name="id" value="<%= product.id %>">
           </form>
         </div>
       </article>

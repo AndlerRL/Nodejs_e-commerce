@@ -506,6 +506,13 @@ span.icon-container {
 
     .icon-container {
       font-size: $medium;
+      margin-right: 0.75rem;
+
+      svg {
+        @include themify($themes) {
+          color: themed('secondary400') !important;
+        }
+      }
     }
 
     @include themify($themes) {

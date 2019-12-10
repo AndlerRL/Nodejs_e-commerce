@@ -2,6 +2,12 @@
   <link rel="stylesheet" href="/css/shop.css">
 </head>
 <%- include('../includes/navigation.ejs') %>
+<div class="head-catalog__container Opacity-In">
+  <div class="head-catalog__img-container">
+    <p>If you are looking the latest shirt or phone, we got it!</p>
+    <p>As a community, we can get what you're looking for.</p>
+  </div>
+</div>
 <div class="wrapper">
   <% if (products.length > 0) { %>
     <div class="grid clearfix">
@@ -13,7 +19,8 @@
           </h1>
         </div>
         <a class="card__image" href="/catalog/<%= product.id %>" onclick="productDetailsHandler(<%= product.id %>)">
-          <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="A Book">
+          <img src="<%= product.imageUrl %>" alt="A Book">
+          <!-- <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="A Book"> -->
         </a>
         <div class="card__content">
           <h2 class="product__price">
@@ -24,16 +31,7 @@
           </p>
         </div>
         <div class="card__actions">
-          <form action="/add-to-cart" method="post">
-            <button class="button secondary">
-              Add to Cart
-            </button>
-          </form>
-          <form action="/save-for-later" method="post">
-            <button class="button secondary">
-              Save for Later
-            </button>
-          </form>
+          <%- include('../includes/add-save.ejs', {product}) %>
         </div>
       </article>
       <% }) %>

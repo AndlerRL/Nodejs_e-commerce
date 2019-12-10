@@ -1,11 +1,75 @@
 <%- include('../includes/head.ejs')  %>
+<link rel="stylesheet" href="/css/shop.css">
 </head>
 
 <%- include('../includes/navigation.ejs') %>
-  <h1 class="title">
-    Cart Page
-  </h1>
-  <a href="/checkout" class="button primary">
-    Go to checkout
-  </a>
+<div class="cart__container">
+  <div class="cart__item-list__container">
+    <% let cartTotal = 0%>
+    <% if (products.length > 0) { %>
+    <ul class="item-list__wrapper">
+      <% products.forEach(({ productData, quantity }) => { %>
+      <li class="item-list__item">
+        <div class="item__head">
+          <span class="item-head__title"><%= productData.title %></span>
+          <div class="item-head__img-container">
+            <img src="<%= productData.imageUrl %>" alt="<%= productData.title %>">
+          </div>
+        </div>
+        <div class="item__body">
+          <div class="item-body__price">
+            <span class="item-price__title">
+              price
+            </span>
+            <span class="item-price__price">
+              $ <%= productData.price %>
+            </span>
+          </div>
+          <div class="item-body__qty">
+            <span class="item-qty__title">
+              qty
+            </span>
+            <span class="item-qty__qty">
+              <%= quantity %>
+            </span>
+          </div>
+          <div class="item-body__total">
+            <span class="item-total__title">
+              total
+            </span>
+            <span class="item-total__total">
+              $ <%= productData.price * quantity %></p>
+            </span>
+          </div>
+        </div>
+        <% cartTotal = cartTotal + (productData.price * quantity) %>
+        <form action="/cart-delete-item" method="post" class="item__actions">
+          <input type="hidden" name="id" value="<%= productData.id %>">
+          <button type="submit" class="button secondary">Delete</button>
+        </form>
+      </li>
+      <% }) %>
+    </ul>
+    <% } else { %>
+    <h2 class="item-list__wrapper">
+      No products in Cart Yet!
+    </h2>
+    <% } %>
+    <div class="item-list__controls">
+      <a href="/checkout" class="button secondary">
+        Delete Cart
+      </a>
+      <a href="/checkout" class="button secondary">
+        Continue Shopping
+      </a>
+      <a href="/checkout" class="button secondary">
+        Go to checkout
+      </a>
+    </div>
+  </div>
+  <div class="cart__summary">
+    <p>Total on Cart: $ <%= cartTotal %></p>
+  </div>
+</div>
+
 <%- include('../includes/end.ejs') %>

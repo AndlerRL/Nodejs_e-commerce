@@ -7,7 +7,7 @@
     <div class="product-detail__container">
       <div class="product-detail__img-container">
         <div class="img-container__main">
-          <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="">
+          <img src="<%= product.imageUrl %>" alt="">
         </div>
         <div class="img-container__sub-imgs">
           <div class="sub-img__container">
@@ -43,22 +43,7 @@
             </span>
           </div>
           <div class="options-container__actions">
-            <form action="/add-to-cart" method="post">
-              <button class="button primary">
-                <span class="icon-container">
-                  <i class="fas fa-cart-plus"></i>
-                </span>
-                Add to cart
-              </button>
-            </form>
-            <form action="/save-for-later" method="post">
-              <button class="button primary">
-                <span class="icon-container">
-                  <i class="fas fa-cart-plus"></i>
-                </span>
-                Save for Later
-              </button>
-            </form>
+            <%- include('../includes/add-save.ejs') %>
           </div>
         </div>
       </div>

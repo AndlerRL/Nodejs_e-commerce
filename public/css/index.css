@@ -416,11 +416,16 @@ span.icon-container {
       .app-container .button.large .icon-container {
         font-size: 16px; }
     .app-container .button .icon-container {
-      font-size: 14px; }
+      font-size: 14px;
+      margin-right: 0.75rem; }
+      .theme-light .app-container .button .icon-container svg {
+        color: #4fc3f7 !important; }
+      .theme-dark .app-container .button .icon-container svg {
+        color: #9e9e9e !important; }
     .theme-light .app-container .button {
       border: 2px solid transparent;
       color: #263238;
-      text-transform: none; }
+      text-transform: capitalize; }
       .theme-light .app-container .button.primary {
         border-color: #dce775;
         background-color: #f9fbe7; }

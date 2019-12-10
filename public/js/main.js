@@ -85,37 +85,48 @@ fileUpload.forEach.call(fileUpload, function (input) {
 
     multipleFiles.innerHTML = '';
 
+    function readAndPreview (file) {
+      const reader = new FileReader();
+      
+      reader.addEventListener('load', function(e) {
+        file.name.search('.svg') !== -1
+        ? multipleFiles.innerHTML += `
+        <div class="img-preview__item-container">
+        <img src=${this.result} alt=${file.name} class="img-preview__item">
+        <p>${file.name.split('.svg')[0]}</p>
+        </div>`
+        : multipleFiles.innerHTML += `
+        <div class="img-preview__item-container">
+        <img src=${this.result} alt=${file.name} class="img-preview__item">
+        <p>${file.name.split('.png')[0]}</p>
+        </div>`
+        
+        const imageUrl = document.querySelectorAll('#imageUrl')[1];
+        let imgResult = '';
+
+        imgResult = this.result;
+        
+        imageUrl.setAttribute('value', imgResult)
+      }, false);
+      
+      reader.readAsDataURL(file);
+    }
+
     if (files && files.length > 1) {
       fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', files.length);
       
-      function readAndPreview (file) {
-        const reader = new FileReader();
-        reader.addEventListener('load', function(e) {
-          file.name.search('.svg') !== -1
-            ? multipleFiles.innerHTML += `
-            <div class="img-preview__item-container">
-              <img src=${this.result} alt=${file.name} class="img-preview__item">
-              <p>${file.name.split('.svg')[0]}</p>
-            </div>`
-            : multipleFiles.innerHTML += `
-            <div class="img-preview__item-container">
-              <img src=${this.result} alt=${file.name} class="img-preview__item">
-              <p>${file.name.split('.png')[0]}</p>
-            </div>`
-        }, false);
-  
-        reader.readAsDataURL(file);
-      }
-
       [].forEach.call(files, readAndPreview);
-    } else
+    } else if (files) {
       fileName = files[0].name.search('.svg') !== -1 
         ? files[0].name.split('.svg')[0] 
         : files[0].name.split('.png')[0];
 
+      [].forEach.call(files, readAndPreview);
+    }
+
     if (fileName)
       label.innerHTML = fileName;
-    else 
+    else
       label.innerHTML = labelVal;
   })
 })
