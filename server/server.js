@@ -38,9 +38,10 @@ app.use((req, res, next) => {
   .catch(err => console.error(err));
 });
 
+app.use('/.netlify/functions/server', router);
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
-app.use('/.netlify/functions/server', router);
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'index.html')));
 
 app.use(error.get404);
 
