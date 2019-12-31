@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(`nodejs_ecommerce`, `root`, `Meynorromero-94.`, {
   dialect: 'mysql',
-  host: 'localhost'
+  host: 'https://nodejs-ecommerce.netlify.com/.netlify/functions/server/'
 });
 
 module.exports = sequelize;
