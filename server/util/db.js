@@ -4,7 +4,7 @@ const mysql2 = require('mysql2');
 const sequelize = new Sequelize(`nodejs_ecommerce`, `root`, `Meynorromero-94.`, {
   dialect: 'mysql',
   dialectModule: mysql2,
-  host: 'https://nodejs-ecommerce.netlify.com/.netlify/functions/server/'
+  host: process.env.NODE_ENV === 'production' ? 'https://nodejs-ecommerce.netlify.com/.netlify/functions/server/' : 'localhost'
 });
 
 module.exports = sequelize;

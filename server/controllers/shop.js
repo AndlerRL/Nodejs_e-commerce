@@ -7,7 +7,7 @@ exports.getHome = (req, res, next) => {
       products,
       pageTitle: 'Shop | Home',
       path: '/',
-    })
+    });
   }).catch(err => console.error(err));
 }
 

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -15,7 +16,7 @@ const router = express.Router();
 const app = express();
 
 app.set('view engine', 'ejs');
-app.set('views', 'views'); // this setting of 'views' is the default, but could be changed depending where .html are located. ex.: 'templates'
+app.set('views', 'server/views'); // this setting of 'views' is the default, but could be changed depending where .html are located. ex.: 'templates'
 
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
@@ -41,7 +42,6 @@ app.use((req, res, next) => {
 app.use('/.netlify/functions/server', router);
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '..', 'index.html')));
 
 app.use(error.get404);
 
@@ -65,8 +65,8 @@ sequelize.sync().then(res => {
   return user;
 }).then(user => {
   console.log(user);
-
-  module.exports = app;
+  console.log(process.env.NODE_ENV);
+  app.listen(8000);
 }).catch(err => {
   console.log(err)
 })

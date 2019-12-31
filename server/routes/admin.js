@@ -15,4 +15,10 @@ router.post('/add-product', adminController.postAddProduct);
 router.post('/edit-product', adminController.postEditProduct);
 router.post('/delete-product', adminController.deleteProduct);
 
+router.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, '..', '..', 'index.html'));
+
+  next();
+});
+
 module.exports = router
