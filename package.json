@@ -4,7 +4,7 @@
   "description": "Node.js Repository using variation of packages.",
   "main": "app.js",
   "scripts": {
-    "build": "netlify-lambda build express",
+    "build": "netlify-lambda build server",
     "test": "jest",
     "coverage": "jest --coverage",
     "start": "nodemon server-local.js",
