@@ -3,12 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const serverless = require('serverless-http');
 
-const sequelize = require('../util/db');
-const Product = require('../models/product');
-const User = require('../models/user');
-const adminRoutes = require('../routes/admin');
-const shopRoutes = require('../routes/shop');
-const error = require('../controllers/error');
+const sequelize = require('./util/db');
+const Product = require('./models/product');
+const User = require('./models/user');
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+const error = require('./controllers/error');
 
 const router = express.Router();
 
