@@ -1,35 +1,30 @@
 // const crypto = require('crypto');
-const db = require('../util/db');
-const Cart = require('./cart');
+const Sequelize = require('sequelize');
 
-module.exports = class Product {
-  constructor(t, i, p, d, id) {
-    this.title = t;
-    this.imageUrl = i;
-    this.price = parseFloat(p);
-    this.description = d;
-    this.id = id;
+const sequelize = require('../util/db');
+const Product = sequelize.define('product', {
+  id: {
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV1,
+    allowNull: false,
+    primaryKey: true,
+  },
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  price: {
+    type: Sequelize.DOUBLE,
+    allowNull: false,
+  },
+  imageUrl: {
+    type: Sequelize.BLOB({ length: 'long' }),
+    allowNull: false
+  },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
-  
-  save() {
-    // const date = new Date();
-    // this.id = crypto.createHash('md5').update(`${date.toDateString()}-${date.toTimeString()}`).digest('hex');
-    const { title, price, description, imageUrl } = this;
-    return db.execute(
-      `INSERT INTO products (title, price, description, imageUrl) VALUES (?, ?, ?, ?)`,
-      [title, price, description, imageUrl]
-    );
-  }
+});
 
-  static fetchAll() {
-    return db.execute('SELECT * FROM products');
-  }
-
-  static findById(id) {
-    return db.execute(`SELECT * FROM products WHERE id = ?`, id);
-  }
-
-  static deleteProductById(id) {
-    return db.execute(`DELETE FROM products WHERE id = ?`, id);
-  }
-}
+module.exports = Product;

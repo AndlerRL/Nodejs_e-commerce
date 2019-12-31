@@ -2,19 +2,19 @@ const Product = require('../models/product');
 const Cart = require('../models/cart');
 
 exports.getHome = (req, res, next) => {
-  Product.fetchAll().then(([rows, fieldData]) => {
+  Product.findAll().then(products => {
     res.render('shop/index', {
-      products: rows,
+      products,
       pageTitle: 'Shop | Home',
       path: '/',
     })
-  }).catch(err => console.log(err));
+  }).catch(err => console.error(err));
 }
 
 exports.getProducts = (req, res, next) => {
-  Product.fetchAll().then(([rows, fieldData]) => {
+  Product.findAll().then(products => {
     res.render('shop/product-list', {
-      products: rows,
+      products,
       pageTitle: 'Shop | Catalog',
       path: '/catalog',
     })
@@ -24,10 +24,25 @@ exports.getProducts = (req, res, next) => {
 exports.getProductDetail = (req, res, next) => {
   const { productId } = req.params;
 
-  Product.findById(productId).then(([rows, fieldData]) => {
+  /** Querying from findAll() DOC: https://sequelize.org/master/manual/querying.html
+   * Product.findAll({ 
+   *  where: { id: productId }
+   * }).then(products => {
+   *  res.render('shop/product-detail', {
+   *    product: products[0],
+   *    pageTitle: `Product | ${products[0].title}`,
+   *    path: `/catalog/${productId}`
+   *  });
+   * }
+   * ).catch(err => console.error(err))
+   * 
+   * Is preferable to use findByPk() if is only one item that I'm looking for,
+   * otherwise if is needed a new array from all items, Querying is the solution.
+   */
+  Product.findByPk(productId).then(product => {
     res.render('shop/product-detail', {
-      product: rows[0],
-      pageTitle: `Product | ${rows[0].title}`,
+      product,
+      pageTitle: `Product | ${product.title}`,
       path: `/catalog/${productId}`
     });
   }).catch(err => console.log(err));
@@ -35,26 +50,28 @@ exports.getProductDetail = (req, res, next) => {
 
 exports.getCart = (req, res, next) => {
   Cart.getProducts(cart => {
-    Product.fetchAll(products => {
+    Product.findAll().then(products => {
       const cartProducts = [];
       for (product of products) {
-        const cartProductData = cart.products.find(p => p.id === product.id);
-        console.log(cartProductData)
+        const cartProductData = cart.products.find(p => p.id == product.id);
         if (cartProductData) cartProducts.push({ productData: product, quantity: cartProductData.quantity })
       }
+
+      console.log('Cart PRODUCTS', cartProducts);
 
       res.render('shop/cart', {
         products: cartProducts,
         pageTitle: 'Shop | Cart',
         path: '/cart'
       });
-    });
+    }).catch(err => console.error(err));
   });
 }
 
 exports.getCartItems = (req, res, next) => {
   Cart.getProducts(cart => {
-    Product.fetchAll(products => {
+    Product.findAll().then(products => {
+      console.log(products)
       const cartProducts = [];
       for (product of products) {
         const cartData = cart.products.find(p => p.id === product.id);
@@ -72,10 +89,10 @@ exports.getCartItems = (req, res, next) => {
 
 exports.postCart = (req, res, next) => {
   const id = req.body.productId;
-  Product.findById(id, product => {
+  Product.findByPk(id).then(product => {
     Cart.addProduct(id, product.price);
     res.redirect('/cart');
-  })
+  }).catch(err => console.error(err));
 }
 
 exports.deleteCartItem = (req, res, next) => {

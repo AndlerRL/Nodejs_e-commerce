@@ -91,15 +91,15 @@ fileUpload.forEach.call(fileUpload, function (input) {
       reader.addEventListener('load', function(e) {
         file.name.search('.svg') !== -1
         ? multipleFiles.innerHTML += `
-        <div class="img-preview__item-container">
+        <figure class="img-preview__item-container">
         <img src=${this.result} alt=${file.name} class="img-preview__item">
-        <p>${file.name.split('.svg')[0]}</p>
-        </div>`
+        <figcaption>${file.name.split('.svg')[0]}</figcaption>
+        </figure>`
         : multipleFiles.innerHTML += `
-        <div class="img-preview__item-container">
+        <figure class="img-preview__item-container">
         <img src=${this.result} alt=${file.name} class="img-preview__item">
-        <p>${file.name.split('.png')[0]}</p>
-        </div>`
+        <figcaption>${file.name.split('.png')[0]}</figcaption>
+        </figure>`
         
         const imageUrl = document.querySelectorAll('#imageUrl')[1];
         let imgResult = '';

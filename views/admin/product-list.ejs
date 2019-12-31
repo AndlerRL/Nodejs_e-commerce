@@ -7,23 +7,23 @@
     Admin Catalog
   </h1>
   <% if (products.length > 0) { %>
-    <div class="grid clearfix">
+    <div class="grid">
       <% products.map(product => { %>
-      <article class="card product-item">
+      <article class="card__product-item">
         <div class="card__header">
           <h1 class="title">
             <%= product.title %>
           </h1>
         </div>
         <div class="card__image">
-          <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="A Book">
+          <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
         </div>
         <div class="card__content">
           <h2 class="product__price">
             $ <%= product.price %>
           </h2>
           <p class="product__description">
-            <%= product.description %>
+            <%= (product.description).substring(0, 50) %> ...
           </p>
         </div>
         <div class="card__actions">

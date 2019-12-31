@@ -23,8 +23,22 @@
         Add Image
       </label>
       <div class="img-preview__container">
+        <% if (editing) { %>
+          <% if (typeof product.imageUrl === [] && product.imageUrl.length) { %>
+            <% product.imageUrl.map(img => { %>
+              <figure class="img-preview__item-container">
+                <img src="<%= img %>" alt="<%= product.title %>" class="img-preview__item">
+                <figcaption><%= product.title %></figcaption>
+              </figure>
+              <% }) } else { %>
+                <figure class="img-preview__item-container">
+                  <img src="<%= product.imageUrl %>" alt="<%= product.title %>" class="img-preview__item">
+                  <figcaption><%= product.title %></figcaption>
+                </figure>
+              <% } %>
+        <% } %>
       </div>
-      <input type="hidden" name="imageUrl" id="imageUrl">
+      <input type="hidden" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= product.imageUrl %><% } %>">
     </div>
     <div class="form-control">
       <label for="price">

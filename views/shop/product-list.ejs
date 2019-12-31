@@ -10,9 +10,9 @@
 </div>
 <div class="wrapper">
   <% if (products.length > 0) { %>
-    <div class="grid clearfix">
+    <div class="grid">
       <% products.map(product => { %>
-      <article class="card product-item" id="<%= product.id %>">
+      <article class="card__product-item" id="<%= product.id %>">
         <div class="card__header">
           <h1 class="title">
             <%= product.title %>
@@ -27,7 +27,7 @@
             $ <%= product.price %>
           </h2>
           <p class="product__description">
-            <%= product.description %>
+            <%= (product.description).substring(0, 50) %> ...
           </p>
         </div>
         <div class="card__actions">

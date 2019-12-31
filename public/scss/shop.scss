@@ -9,24 +9,14 @@
   scroll-snap-type: both mandatory;
   overflow-x: scroll;
   padding: 0 8px;
+  flex-wrap: nowrap;
 
   @media screen and (min-width: $allDevices) {
-    overflow-x: none; 
-    display: table;
-    justify-content: space-evenly;
+    overflow-x: hidden; 
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-  }
-}
-
-.clearfix {
-  @media screen and (min-width: $allDevices) {
-    overflow: auto;
-  
-    &::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
+    flex-wrap: wrap;
   }
 }
 
@@ -63,18 +53,18 @@
   }
 }
 
-.card {
+.card__product-item {
   border: 3px solid transparent;
   border-radius: 2px;
-  width: 300px;
-  height: 525px;
+  min-width: 275px;
+  height: 550px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  margin: 0 1rem 1rem 0;
-  float: left;
+  margin: 0 1rem;
   scroll-snap-align: center;
+  position: relative;
   
   @include themify($themes) {
     background-color: themed('primary200');
@@ -97,19 +87,23 @@
     width: 100%;
     text-align: center;
     text-transform: capitalize;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
 
     @include themify($themes) {
-      background-color: themed('primary50');
+      background: linear-gradient(to bottom, themed('primary50') 24.999%, transparent 74.999%); 
     }
   }
 
   .card__image {
     width: 100%;
-    min-height: 41.666%;
+    min-height: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 0 12px;
+    padding: 21px;
 
     @include themify($themes) {
       background-color: themed('primary50');
@@ -122,6 +116,7 @@
       max-height: 100%;
       cursor: pointer;
       transition: transform 0.23s cubic-bezier(0.785, 0.135, 0.15, 0.86) 50ms;
+      z-index: 0;
 
       &:hover {
         transform: scale(1.1);
@@ -133,6 +128,7 @@
     width: 91.666%;
     display: block;
     font-family: sans-serif;
+    height: 50%;
 
     .product__price {
       letter-spacing: 1px;
@@ -141,7 +137,7 @@
     }
 
     .product__description {
-      line-height: 1.33;
+      line-height: 1.45;
     }
   }
 
