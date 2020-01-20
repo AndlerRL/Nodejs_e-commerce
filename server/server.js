@@ -14,6 +14,8 @@ const router = express.Router();
 
 const app = express();
 
+const PORT = process.env.PORT || 8000;
+
 app.set('view engine', 'ejs');
 app.set('views', 'server/views'); // this setting of 'views' is the default, but could be changed depending where .html are located. ex.: 'templates'
 
@@ -65,7 +67,9 @@ sequelize.sync().then(res => {
 }).then(user => {
   console.log(user);
   console.log(process.env.NODE_ENV);
-  app.listen(8000);
+  app.listen(PORT, () => {
+    console.log(`App listening at PORT: ${PORT}`)
+  });
 }).catch(err => {
   console.log(err)
 });
