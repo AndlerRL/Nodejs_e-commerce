@@ -54,7 +54,7 @@ User.hasMany(Product);
 // so we can see the interaction/changes.
 sequelize.sync().then(res => {
   // Dummy User, since there's no auth process yet.
-  return User.findByPk('4af804fa-1205-469b-92cb-f5afc58cd031');
+  return User.findByPk(process.env.NODE_ENV === 'production' ? 'f7649aac-2bb7-49c2-9a78-cad595b3ded3' : '4af804fa-1205-469b-92cb-f5afc58cd031');
 }).then(user => {
   if (!user)
     User.create({
