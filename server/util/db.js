@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
 const mysql2 = require('mysql2');
 
-const sequelize = new Sequelize(process.env.NODE_ENV === 'production' ? 'shop4any' : `nodejs_ecommerce`, `root`, `Meynorromero-94.`, {
+// new Sequelize(db, user, pw, opt);
+const sequelize = new Sequelize(process.env.NODE_ENV === 'production' ? 'ssxahsbhdjzhphao' : `nodejs_ecommerce`, `ngx2x5avhsgi9ofw`, `xr33ezy0hev6op7l`, {
   dialect: 'mysql',
   dialectModule: mysql2,
   host: process.env.NODE_ENV === 'production' ? 'hcm4e9frmbwfez47.cbetxkdyhwsb.us-east-1.rds.amazonaws.com' : 'localhost'
