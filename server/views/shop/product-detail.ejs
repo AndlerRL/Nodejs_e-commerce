@@ -11,13 +11,13 @@
         </div>
         <div class="img-container__sub-imgs">
           <div class="sub-img__container">
-            <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="">
+            <img src="<%= product.imageUrl %>" alt="">
           </div>
           <div class="sub-img__container">
-            <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="">
+            <img src="<%= product.imageUrl %>" alt="">
           </div>
           <div class="sub-img__container">
-            <img src="https://cdn.pixabay.com/photo/2016/03/31/20/51/book-1296045_960_720.png" alt="">
+            <img src="<%= product.imageUrl %>" alt="">
           </div>
         </div>
       </div>
@@ -31,12 +31,13 @@
           <p><%= product.description %></p>
         </div>
         <div class="description-container__more-info">
+          <h3>Additional Information</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam quisquam nobis sunt nemo? Iure sapiente, commodi minima vitae excepturi, delectus quisquam quasi nemo ipsam eum quia itaque? Similique, sed explicabo!</p>
         </div>
         <div class="description-container__options-container">
           <div class="options-container__price">
             <span class="price__main" style="text-decoration: <%= product.discount ? 'line-through' : 'none' %>; color: <%= product.discount ? '#f44' : '' %>; font-size: <%= product.discount ? '20px' : '' %>">
-              $ <%= product.price %>
+              $ <%= (product.price).toFixed(2) %>
             </span>
             <span class="<%= product.discount ? price__discount : '' %>">
               <%= product.discount || null %>

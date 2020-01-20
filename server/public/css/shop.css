@@ -42,7 +42,10 @@
       font-family: sans-serif;
       font-weight: lighter;
       text-transform: uppercase;
-      text-shadow: -1px 1px #222, -2px 2px #222, -3px 3px #222, -4px 4px #222; }
+      text-shadow: -1px 1px #222, -2px 2px #222, -3px 3px #222, -4px 4px #222;
+      width: 83.333%;
+      max-width: 600px;
+      text-align: center; }
 
 .card__product-item {
   border: 3px solid transparent;
@@ -53,7 +56,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 0 1rem;
+  margin: 1.25rem 1rem;
   scroll-snap-align: center;
   position: relative; }
   .theme-light .card__product-item {
@@ -130,18 +133,26 @@
 
 .product-detail__container {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   width: 100%; }
+  @media screen and (min-width: 771px) {
+    .product-detail__container {
+      flex-direction: row; } }
   .product-detail__container .product-detail__img-container,
   .product-detail__container .product-detail__description-container {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     min-height: 40rem;
     padding: 32px; }
+    @media screen and (min-width: 771px) {
+      .product-detail__container .product-detail__img-container,
+      .product-detail__container .product-detail__description-container {
+        width: 50%; } }
   .product-detail__container .product-detail__img-container {
     border-radius: 5px; }
     .theme-light .product-detail__container .product-detail__img-container {
@@ -156,8 +167,10 @@
         align-items: center;
         justify-content: center; }
         .theme-light .product-detail__container .product-detail__img-container .img-container__main > img {
-          width: 100%;
+          width: auto;
+          max-width: 100%;
           height: auto;
+          max-height: 100%;
           margin: auto; }
       .theme-light .product-detail__container .product-detail__img-container .img-container__sub-imgs {
         display: flex;
@@ -173,7 +186,10 @@
           display: flex;
           align-items: center; }
           .theme-light .product-detail__container .product-detail__img-container .img-container__sub-imgs .sub-img__container > img {
-            height: 100%;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
             margin: auto; }
     .theme-dark .product-detail__container .product-detail__img-container {
       background-color: #263238;
@@ -187,8 +203,10 @@
         align-items: center;
         justify-content: center; }
         .theme-dark .product-detail__container .product-detail__img-container .img-container__main > img {
-          width: 100%;
+          width: auto;
+          max-width: 100%;
           height: auto;
+          max-height: 100%;
           margin: auto; }
       .theme-dark .product-detail__container .product-detail__img-container .img-container__sub-imgs {
         display: flex;
@@ -204,7 +222,10 @@
           display: flex;
           align-items: center; }
           .theme-dark .product-detail__container .product-detail__img-container .img-container__sub-imgs .sub-img__container > img {
-            height: 100%;
+            width: auto;
+            max-width: 100%;
+            height: auto;
+            max-height: 100%;
             margin: auto; }
   .product-detail__container .description-container__title {
     text-transform: uppercase; }
@@ -212,7 +233,13 @@
   .product-detail__container .description-container__more-info {
     font-family: sans-serif;
     line-height: 1.66;
-    width: 100%; }
+    width: 100%;
+    white-space: pre-line; }
+    .product-detail__container .description-container__main h3,
+    .product-detail__container .description-container__more-info h3 {
+      font-weight: 500;
+      letter-spacing: 1px;
+      opacity: 0.45; }
   .product-detail__container .description-container__options-container {
     margin: 1.5rem 0;
     font-family: sans-serif;

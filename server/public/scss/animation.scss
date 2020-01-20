@@ -48,12 +48,12 @@
 }
 
 .Show-Menu {
-  z-index: 1700 !important;
+  z-index: 1600 !important;
   animation: fade-left 0.66s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
 }
 
 .Hide-Menu {
-  z-index: 1700 !important;
+  z-index: 1600 !important;
   animation: fade-left-hide 0.66s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
 }
 

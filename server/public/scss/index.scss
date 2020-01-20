@@ -197,7 +197,7 @@ span.icon-container {
   width: 100%;
   height: 100%;
   position: fixed;
-  z-index: 1600;
+  z-index: 1500;
   top: 0;
   left: 0;
   display: block;
@@ -232,7 +232,7 @@ span.icon-container {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    z-index: 1600;
+    z-index: 1700;
     padding: 0 32px;
 
     @include themify($themes) {
@@ -356,7 +356,7 @@ span.icon-container {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    z-index: 1500;
+    z-index: 1600;
     width: 275px;
     max-width: 45%;
     padding: 16px;
@@ -441,6 +441,8 @@ span.icon-container {
     &.title__head,
     &.title__head-sub {
       font-weight: bolder;
+      width: 91.666%;
+      max-width: 800px;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: #fafafa;
@@ -456,10 +458,10 @@ span.icon-container {
     }
 
     &.title__head {
-      font-size: 13vw;
+      font-size: 10vw;
 
       @media screen and (min-width: $tablet) {
-        font-size: 7vw;
+        font-size: 9vw;
       }
 
       @media screen and (min-width: $allDevices) {
@@ -468,7 +470,7 @@ span.icon-container {
     }
 
     &.title__head-sub {
-      font-size: 8vw;
+      font-size: 5vw;
       color: #222;
       text-transform: capitalize;
       font-weight: 500;
@@ -476,7 +478,7 @@ span.icon-container {
         -2px 2px #fafafa;
 
       @media screen and (min-width: $tablet) {
-        font-size: 3vw;
+        font-size: 4vw;
       }
 
       @media screen and (min-width: $allDevices) {

@@ -107,21 +107,21 @@ exports.deleteCartItem = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-  Product.fetchAll(products => {
+  Product.findAll().then(products => {
     res.render('shop/orders', {
       products,
       pageTitle: 'Shop | Orders',
       path: '/orders'
     })
-  })
+  }).catch(err => console.error(err));
 }
 
 exports.getCheckout = (req, res, next) => {
-  Product.fetchAll(products => {
+  Product.findAll().then(products => {
     res.render('shop/checkout', {
       products,
       pageTitle: 'Shop | Product Detail',
       path: '/checkout'
     })
-  })
+  }).catch(err => console.error(err));
 }

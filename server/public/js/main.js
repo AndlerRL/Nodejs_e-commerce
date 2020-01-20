@@ -58,6 +58,7 @@ function productDetailsHandler(e) {
 
 function toggleMenuHandler () {
   const opt = document.getElementsByClassName('sidedrawer-container')[0];
+  const menu = document.getElementsByClassName('menu')[0];
   const backdrop = document.getElementsByClassName('backdrop')[0];
 
   if (opt.classList.contains('Show-Menu')) {
@@ -66,6 +67,20 @@ function toggleMenuHandler () {
   } else {
     opt.classList.toggle('Show-Menu');
     backdrop.classList.toggle('Show-Backdrop');
+  }
+
+  if (menu.children[0].classList.contains('fa-bars')) {
+    const close = document.createElement('i');
+
+    close.setAttribute('class', 'fas fa-times-circle');
+    menu.removeChild(menu.children[0]);
+    menu.appendChild(close);
+  } else {
+    const open = document.createElement('i');
+    
+    open.setAttribute('class', 'fas fa-bars');
+    menu.removeChild(menu.children[0]);
+    menu.appendChild(open);
   }
 }
 

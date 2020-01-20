@@ -8,7 +8,7 @@
     "test:coverage": "jest --coverage",
     "dev": "cross-env NODE_ENV=development nodemon server/server.js",
     "start": "node server/server.js",
-    "scss-compile": "node-sass -rw public/scss/ -o public/css/",
+    "scss-compile": "node-sass -rw server/public/scss/ -o server/public/css/",
     "watch": "npm run scss-compile"
   },
   "author": "AndlerRL",
