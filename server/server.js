@@ -15,6 +15,7 @@ const router = express.Router();
 const app = express();
 
 const PORT = process.env.PORT || 8000;
+const pk = process.env.NODE_ENV === 'production' ? 'f7649aac-2bb7-49c2-9a78-cad595b3ded3' : '4af804fa-1205-469b-92cb-f5afc58cd031';
 
 app.set('view engine', 'ejs');
 app.set('views', 'server/views'); // this setting of 'views' is the default, but could be changed depending where .html are located. ex.: 'templates'
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
  * I used the next() function so the upcoming req can go on and on.
  */
 app.use((req, res, next) => {
-  User.findByPk('4af804fa-1205-469b-92cb-f5afc58cd031')
+  User.findByPk(pk)
   .then(user => {
     req.user = user;
     next();
@@ -54,7 +55,7 @@ User.hasMany(Product);
 // so we can see the interaction/changes.
 sequelize.sync().then(res => {
   // Dummy User, since there's no auth process yet.
-  return User.findByPk(process.env.NODE_ENV === 'production' ? 'f7649aac-2bb7-49c2-9a78-cad595b3ded3' : '4af804fa-1205-469b-92cb-f5afc58cd031');
+  return User.findByPk(pk);
 }).then(user => {
   if (!user)
     User.create({
