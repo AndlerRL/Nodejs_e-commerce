@@ -4,11 +4,11 @@
   "description": "Node.js Repository using variation of packages.",
   "main": "app.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production netlify-lambda build server",
+    "build": "cf push le-shop",
     "test": "jest",
-    "coverage": "jest --coverage",
-    "dev": "cross-env NODE_ENV=development npm start",
-    "start": "nodemon server/server.js",
+    "test:coverage": "jest --coverage",
+    "dev": "cross-env NODE_ENV=development nodemon server/server.js",
+    "start": "node server/server.js",
     "scss-compile": "node-sass -rw public/scss/ -o public/css/",
     "watch": "npm run scss-compile"
   },
@@ -18,9 +18,7 @@
     "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "jest": "^24.9.0",
-    "netlify-lambda": "^1.6.3",
-    "nodemon": "^1.19.4",
-    "serverless-http": "^2.3.0"
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

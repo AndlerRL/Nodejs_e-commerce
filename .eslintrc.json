@@ -4,7 +4,7 @@
   ],
   "rules": {
     "prefer-const": [
-      "error"
+      "warn"
     ],
     "no-duplicate-imports": [
       "error"

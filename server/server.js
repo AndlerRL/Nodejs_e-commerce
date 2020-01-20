@@ -2,7 +2,6 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const serverless = require('serverless-http');
 
 const sequelize = require('./util/db');
 const Product = require('./models/product');
@@ -69,6 +68,4 @@ sequelize.sync().then(res => {
   app.listen(8000);
 }).catch(err => {
   console.log(err)
-})
-
-module.exports.handler = serverless(app);
+});
