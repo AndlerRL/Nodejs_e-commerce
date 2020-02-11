@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 const sequelize = require('./util/db');
 const Product = require('./models/product');
 const User = require('./models/user');
+const Cart = require('./models/cart');
+const CartItem = require('./models/cart-item');
+const Order = require('./models/order');
+const OrderItem = require('./models/order-item');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const error = require('./controllers/error');
@@ -15,7 +19,7 @@ const router = express.Router();
 const app = express();
 
 const PORT = process.env.PORT || 8000;
-const pk = process.env.NODE_ENV === 'production' ? 'f7649aac-2bb7-49c2-9a78-cad595b3ded3' : '4af804fa-1205-469b-92cb-f5afc58cd031';
+const pk = process.env.NODE_ENV === 'production' ? 'f7649aac-2bb7-49c2-9a78-cad595b3ded3' : 'd18c8c16-bd8b-4a4c-8b71-ca813db62a35';
 
 app.set('view engine', 'ejs');
 app.set('views', 'server/views'); // this setting of 'views' is the default, but could be changed depending where .html are located. ex.: 'templates'
@@ -48,7 +52,18 @@ app.use(shopRoutes);
 app.use(error.get404);
 
 Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
+Product.belongsToMany(Cart, { through: CartItem });
+
 User.hasMany(Product);
+User.hasMany(Order);
+User.hasOne(Cart);
+
+Cart.belongsTo(User);
+Cart.belongsToMany(Product, { through: CartItem });
+
+Order.belongsTo(User);
+Order.belongsToMany(Product, { through: OrderItem });
+
 
 // In Production is not recommended to always overwrite the tables with
 // .sync({ force: true }) but on development is ok to reflect new changes
@@ -68,6 +83,9 @@ sequelize.sync().then(res => {
 }).then(user => {
   console.log(user);
   console.log(process.env.NODE_ENV);
+  
+  return user.createCart();
+}).then(cart => {
   app.listen(PORT, () => {
     console.log(`App listening at PORT: ${PORT}`)
   });

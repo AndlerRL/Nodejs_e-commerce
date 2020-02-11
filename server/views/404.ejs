@@ -2,6 +2,7 @@
 </head>
 
 <%- include('includes/navigation.ejs') %>
+<div class="error-wrapper" style="background: url(/assets/images/<%= background %>) center center no-repeat;">
   <div class="error-container">
     <span class="icon-container icon__primary">
         <i class="far fa-sad-cry fa-7x"></i>
@@ -13,5 +14,6 @@
       I'm sorry. Seems the link doesn't exist on this server, try something else!
     </h1>
   </div>
+</div>
 <%- include('includes/end.ejs') %>
     

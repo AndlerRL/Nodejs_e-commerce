@@ -5,15 +5,17 @@
 <%- include('../includes/navigation.ejs') %>
 <div class="cart__container">
   <div class="cart__item-list__container">
-    <% let cartTotal = 0%>
+    <% let cartTotal = 0 %>
+    <% let cartId = '' %>
     <% if (products.length > 0) { %>
     <ul class="item-list__wrapper">
-      <% products.forEach(({ productData, quantity }) => { %>
+      <% products.forEach(({ id, title, imageUrl, price, cartItem: { quantity, cartId } }) => { %>
+      <% cartId = cartId %>
       <li class="item-list__item">
         <div class="item__head">
-          <span class="item-head__title"><%= productData.title %></span>
+          <span class="item-head__title"><%= title %></span>
           <div class="item-head__img-container">
-            <img src="<%= productData.imageUrl %>" alt="<%= productData.title %>">
+            <img src="<%= imageUrl %>" alt="<%= title %>">
           </div>
         </div>
         <div class="item__body">
@@ -22,7 +24,7 @@
               price
             </span>
             <span class="item-price__price">
-              $ <%= productData.price %>
+              $ <%= price %>
             </span>
           </div>
           <div class="item-body__qty">
@@ -38,13 +40,13 @@
               total
             </span>
             <span class="item-total__total">
-              $ <%= productData.price * quantity %></p>
+              $ <%= price * quantity %></p>
             </span>
           </div>
         </div>
-        <% cartTotal = cartTotal + (productData.price * quantity) %>
+        <% cartTotal = cartTotal + (price * quantity) %>
         <form action="/cart-delete-item" method="post" class="item__actions">
-          <input type="hidden" name="id" value="<%= productData.id %>">
+          <input type="hidden" name="id" value="<%= id %>">
           <button type="submit" class="button secondary">Delete</button>
         </form>
       </li>
@@ -56,15 +58,16 @@
     </h2>
     <% } %>
     <div class="item-list__controls">
-      <a href="/checkout" class="button secondary">
-        Delete Cart
-      </a>
-      <a href="/checkout" class="button secondary">
+      <form action="/cart-delete" method="post" class="item__actions">
+        <input type="hidden" name="cartId" value="<%= cartId %>">
+        <button type="submit" class="button secondary">Delete Cart</button>
+      </form>
+      <a href="/catalog" class="button secondary">
         Continue Shopping
       </a>
-      <a href="/checkout" class="button secondary">
-        Go to checkout
-      </a>
+      <form action="/order-create" method="post" class="item__actions">
+        <button type="submit" class="button secondary">Order Now!</button>
+      </form>
     </div>
   </div>
   <div class="cart__summary">

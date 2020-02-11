@@ -39,16 +39,16 @@
     align-items: center;
     justify-content: center;
 
-    p {
-      font-size: $xx-large;
+    h2 {
       color: #f5f5f5;
-      font-family: sans-serif;
+      letter-spacing: 3px;
       font-weight: lighter;
       text-transform: uppercase;
-      text-shadow: -1px 1px #222,
-        -2px 2px #222,
-        -3px 3px #222,
-        -4px 4px #222;
+      text-shadow: -1px 1px 2px #222,
+        -1px 1px 2px #222,
+        -2px 2px 2px #222,
+        -3px 3px 2px #222,
+        -4px 4px 2px #222;
       width: 83.333%;
       max-width: 600px;
       text-align: center;
@@ -130,7 +130,6 @@
   .card__content {
     width: 91.666%;
     display: block;
-    font-family: sans-serif;
     height: 50%;
 
     .product__price {
@@ -247,7 +246,6 @@
 
   .description-container__main,
   .description-container__more-info {
-    font-family: sans-serif;
     line-height: 1.66;
     width: 100%;
     white-space: pre-line;
@@ -261,7 +259,6 @@
 
   .description-container__options-container {
     margin: 1.5rem 0;
-    font-family: sans-serif;
     width: 100%;
 
     .options-container__price {
@@ -347,7 +344,6 @@
         align-items: center;
         justify-content: flex-start;
         margin: 2rem 0 3.5rem;
-        font-family: sans-serif;
         border-radius: $radii;
         
         @include themify($themes) {
@@ -477,7 +473,6 @@
       background-color: themed('secondary300');
     }
 
-    font-family: sans-serif;
     width: 91.666%;
     margin: auto;
     min-height: 33.33vh;
