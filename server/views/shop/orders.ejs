@@ -1,11 +1,58 @@
 <%- include('../includes/head.ejs')  %>
+<link rel="stylesheet" href="/css/shop.css">
 </head>
 
 <%- include('../includes/navigation.ejs') %>
-  <h1 class="title">
-    Orders Page
-  </h1>
-  <a href="/checkout" class="button primary">
-    Go to checkout
-  </a>
+<div class="cart__container">
+  <div class="cart__item-list__container">
+    <% if (orders.length <= 0) { %>
+    <h1 class="title">
+      Nothing Here!
+    </h1>
+    <% } else { %>
+    <ul class="item-list__wrapper">
+      <% orders.forEach(({ id, products }, order) => { %>
+      <li class="item-list__item">
+        <div class="item__body">
+          <div class="item-body__price">
+            <span class="item-price__title">
+              ID
+            </span>
+            <span class="item-price__price">
+              <%= id %>
+            </span>
+          </div>
+          <div class="item-body__qty">
+            <span class="item-qty__title">
+              order items
+            </span>
+            <% products.forEach(item => { %>
+              <span class="item-qty__qty">
+                <%= item.title %> [<%= item.orderItem.quantity %>]
+              </span>
+            <% }) %>
+          </div>
+          <div class="item-body__total">
+            <span class="item-total__title">
+              total
+            </span>
+            <span class="item-total__total">
+              $ </p>
+            </span>
+          </div>
+        </div>
+
+        <form action="/cart-delete-item" method="post" class="item__actions">
+          <input type="hidden" name="id" value="">
+          <button type="submit" class="button secondary">Delete</button>
+        </form>
+      </li>
+      <% }) %>
+    </ul>
+    <% } %>
+    <a href="/checkout" class="button primary">
+      Go to checkout
+    </a>
+  </div>
+</div>
 <%- include('../includes/end.ejs') %>
