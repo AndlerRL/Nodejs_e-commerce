@@ -19,7 +19,7 @@ const router = express.Router();
 const app = express();
 
 const PORT = process.env.PORT || 8000;
-const pk = process.env.NODE_ENV === 'production' ? 'f7649aac-2bb7-49c2-9a78-cad595b3ded3' : 'd18c8c16-bd8b-4a4c-8b71-ca813db62a35';
+const pk = process.env.NODE_ENV === 'production' ? '9589f134-02e6-4090-ac9c-705ddb12f220' : 'd18c8c16-bd8b-4a4c-8b71-ca813db62a35';
 
 app.set('view engine', 'ejs');
 app.set('views', 'server/views'); // this setting of 'views' is the default, but could be changed depending where .html are located. ex.: 'templates'
@@ -67,7 +67,7 @@ Order.belongsToMany(Product, { through: OrderItem });
 // In Production is not recommended to always overwrite the tables with
 // .sync({ force: true }) but on development is ok to reflect new changes
 // so we can see the interaction/changes.
-sequelize.sync({ force: true }).then(res => {
+sequelize.sync().then(res => {
   // Dummy User, since there's no auth process yet.
   return User.findByPk(pk);
 }).then(user => {
