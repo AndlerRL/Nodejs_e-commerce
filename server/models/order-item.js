@@ -8,6 +8,10 @@ const OrderItem = sequelize.define('orderItem', {
     defaultValue: Sequelize.UUIDV1,
     allowNull: false,
     primaryKey: true
+  },
+  quantity: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 });
 

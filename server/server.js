@@ -67,7 +67,7 @@ Order.belongsToMany(Product, { through: OrderItem });
 // In Production is not recommended to always overwrite the tables with
 // .sync({ force: true }) but on development is ok to reflect new changes
 // so we can see the interaction/changes.
-sequelize.sync().then(res => {
+sequelize.sync({ force: true }).then(res => {
   // Dummy User, since there's no auth process yet.
   return User.findByPk(pk);
 }).then(user => {
