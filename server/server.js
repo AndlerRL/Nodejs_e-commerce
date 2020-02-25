@@ -50,12 +50,12 @@ app.use(shopRoutes);
 
 app.use(error.get404);
 
-Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
-Product.belongsToMany(Cart, { through: CartItem });
-
 User.hasMany(Product);
 User.hasMany(Order);
 User.hasOne(Cart);
+
+Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
+Product.belongsToMany(Cart, { through: CartItem });
 
 Cart.belongsTo(User);
 Cart.belongsToMany(Product, { through: CartItem });
@@ -75,7 +75,8 @@ sequelize.sync().then(res => {
     User.create({
       firstname: 'Roberto',
       lastname: 'Lucas',
-      email: 'test@admin.com'
+      email: 'test@admin.com',
+      password: 'asdasd'
     })
 
   return user;

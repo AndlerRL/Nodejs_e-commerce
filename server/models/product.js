@@ -1,28 +1,28 @@
 // const crypto = require('crypto');
-const Sequelize = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 const sequelize = require('../util/db');
 const Product = sequelize.define('product', {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV1,
+    type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV1,
     allowNull: false,
     primaryKey: true,
   },
   title: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   price: {
-    type: Sequelize.DOUBLE,
+    type: DataTypes.DOUBLE,
     allowNull: false,
   },
   imageUrl: {
-    type: Sequelize.BLOB({ length: 'long' }),
+    type: DataTypes.BLOB({ length: 'long' }),
     allowNull: false
   },
   description: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
   }
 });
