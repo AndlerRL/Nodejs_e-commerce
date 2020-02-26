@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="420px" height="507px" viewBox="0 0 420 507" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>logo.svg</title>
+    <desc>Created with Sketch.</desc>
+    <g id="base" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M32.046394,94.000016 L7.43714479,500 L412.549247,500 L387.19641,94.0000184 L288.655637,94.000294 L287.581033,88.2962295 C278.59629,40.6046731 246.242536,7 209.5,7 C172.757464,7 140.40371,40.6046731 131.418967,88.2962295 L130.344363,94.0002941 L32.046394,94.000016 Z" id="Bag" stroke="#5C6BC0" stroke-width="14"></path>
+        <text id="A-N-Y" stroke="#212121" stroke-width="3" font-family="Copperplate-Bold, Copperplate" font-size="44" font-weight="bold" fill="#F5F5F5">
+            <tspan x="314" y="378"></tspan>
+            <tspan x="252.906" y="423">A N Y</tspan>
+        </text>
+        <text id="4" stroke="#212121" stroke-width="3" font-family="STHeitiTC-Medium, Heiti TC" font-size="290" font-weight="bold" fill="#F5F5F5">
+            <tspan x="199" y="147"></tspan>
+            <tspan x="118.67" y="437">4</tspan>
+        </text>
+        <text id="S-H-O-P" stroke="#212121" stroke-width="3" transform="translate(147.000000, 254.000000) rotate(-55.000000) translate(-147.000000, -254.000000) " font-family="Copperplate-Bold, Copperplate" font-size="44" font-weight="bold" fill="#F5F5F5">
+            <tspan x="41" y="243"></tspan>
+            <tspan x="41" y="288">S  H  O  P</tspan>
+        </text>
+    </g>
+</svg>
