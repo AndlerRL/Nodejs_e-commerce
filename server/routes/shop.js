@@ -19,10 +19,7 @@ router.get('/orders', shopController.getOrders);
 
 router.get('/checkout', shopController.getCheckout);
 
-router.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'index.html'));
-
-  next();
-});
+router.get('/login', shopController.getLogin);
+// router.post('/login', shopController.postLogin);
 
 module.exports = router;

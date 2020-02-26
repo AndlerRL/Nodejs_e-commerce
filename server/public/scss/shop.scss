@@ -56,10 +56,11 @@
   }
 }
 
-.card__product-item {
+.card__product-item.mdl-card {
   border: 3px solid transparent;
   border-radius: 2px;
-  min-width: 275px;
+  width: 275px !important;
+  max-width: 45%;
   height: 550px;
   display: flex;
   flex-direction: column;
@@ -75,82 +76,70 @@
   }
 
   @media screen and (min-width: $tablet) {
-    width: 40%;
+    width: 40% !important;
   }
 
   @media screen and (min-width: $allDevices) {
-    width: 30%;
+    width: 30% !important;
   }
 
   @media screen and (min-width: $hd) {
-    width: 23%;
+    width: 23% !important;
   }
 
-  .card__header {
+  .mdl-card__title.mdl-card--expand {
     width: 100%;
-    text-align: center;
-    text-transform: capitalize;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-
+    background-size: contain !important;
+    background-position: center center !important;
+    padding-bottom: 0px !important;
+    transition: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 100ms !important;
+    cursor: pointer;
+    
     @include themify($themes) {
-      background: linear-gradient(to bottom, themed('primary50') 24.999%, transparent 74.999%); 
-    }
-  }
-
-  .card__image {
-    width: 100%;
-    min-height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 21px;
-
-    @include themify($themes) {
-      background-color: themed('primary50');
+      background-color: themed('primary50') !important;
     }
 
-    > img {
-      width: auto;
-      max-width: 90%;
-      height: auto;
-      max-height: 100%;
-      cursor: pointer;
-      transition: transform 0.23s cubic-bezier(0.785, 0.135, 0.15, 0.86) 50ms;
-      z-index: 0;
+    &:hover {
+      background-position-y: -20px !important;
+    }
 
-      &:hover {
-        transform: scale(1.1);
+    .mdl-card__title-text {
+      width: 100% !important;
+      font-family: 'Karla', sans-serif;
+      padding: 32px 0px 8px;
+
+      @include themify($themes) {
+        color: themed('textColor') !important;
+        background: linear-gradient(to top, themed('primary50') 24.999%, transparent 74.999%);
       }
     }
   }
 
-  .card__content {
-    width: 91.666%;
-    display: block;
-    height: 50%;
+  .mdl-card__supporting-text {
+    @include themify($themes) {
+      color: themed('textColor') !important;
+    }
 
     .product__price {
       letter-spacing: 1px;
       line-height: 1.25;
       width: 100%;
     }
-
+  
     .product__description {
       line-height: 1.45;
     }
   }
 
-  .card__actions {
-    width: 91.666%;
+
+  .mdl-card__actions.mdl-card--border {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 
-    > form {
+    > form,
+    a {
       margin: 0.5rem 0;
       width: 100%;
 

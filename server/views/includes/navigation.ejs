@@ -1,109 +1,58 @@
 <body id="app-root" class="">
-  <div class="app-container">
-    <header class="header-container">
-      <span class="icon-container icon__secondary menu" onclick="toggleMenuHandler(this)">
-        <i class="fas fa-bars"></i>
-      </span>
-      <div class="logo-container">
-        <div class="logo" onclick="returnHomeHandler(this)"></div>
-      </div>
-      <nav class="nav-container">
-        <ul class="nav-container__list-container">
-          <li class="list-container__list-item">
-              <span class="items-cart">
-                0
-              </span>
-              <a href="/cart" class="<%= path && path === '/cart' ? 'active' : '' %>">
-                <span class="icon-container icon__secondary">
-                  <i class="fas fa-shopping-cart"></i>
-                </span>
-              </a>
-            </li>
-          <li class="list-container__list-item">
-            <a href="/" class="<%= path && path === '/' ? 'active' : '' %>">
-              Shop
-            </a>
-          </li>
-          <li class="list-container__list-item">
-            <a href="/catalog" class="<%= path && path === '/catalog' ? 'active' : '' %>">
-              Catalog
-            </a>
-          </li>
-          <li class="list-container__list-item">
-            <a href="/admin/add-product" class="<%= path && path === '/admin/add-product' ? 'active' : '' %>">
-              Add Product
-            </a>
-          </li>
-          <li class="list-container__list-item">
-            <a href="/admin/product-list" class="<%= path && path === '/admin/product-list' ? 'active' : '' %>">
-              Admin Products
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <span class="icon-container icon__secondary" id="settings">
-        <i class="fas fa-ellipsis-v"></i>
-      </span>
-    </header>
-    <div class="settings-container">
-      <ul class="settings__options-container">
-        <li class="settings__options-list">
-          <span class="option-list__helper"></span>
-          <a href="/authentication">
-            Sign In / Sign Up
-          </a>
-        </li>
-      </ul>
-      <button class="button primary" onclick="changeThemeHandler(this)">
-        Change Theme
-      </button>
-    </div>
-    <nav class="sidedrawer-container">
-      <ul class="sidedrawer-container__list-container">
-        <li class="list-container__list-item">
-            <span class="items-cart">
-              0
+  <div class="app-container mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <div class="logo-container mdl-layout-title">
+          <div class="logo" onclick="returnHomeHandler(this)"></div>
+        </div>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a href="/cart" class="mdl-navigation__link <%= path && path === '/cart' ? 'active' : '' %>">
+            <span class="icon-container icon__secondary">
+              <i class="fas fa-shopping-cart"></i>
             </span>
-            <a href="/cart" class="<%= path && path === '/cart' ? 'active' : '' %>">
-              <span class="icon-container icon__secondary">
-                <i class="fas fa-shopping-cart"></i>
-              </span>
-            </a>
-          </li>
-        <li class="list-container__list-item">
-          <a href="/" class="<%= path && path === '/' ? 'active' : '' %>">
-            <span class="list-item__helper"></span>
+          </a>
+          <a href="/" class="mdl-navigation__link <%= path && path === '/' ? 'active' : '' %>">
             Shop
           </a>
-        </li>
-        <li class="list-container__list-item">
-          <a href="/catalog" class="<%= path && path === '/catalog' ? 'active' : '' %>">
-            <span class="list-item__helper"></span>
+          <a href="/catalog" class="mdl-navigation__link <%= path && path === '/catalog' ? 'active' : '' %>">
             Catalog
           </a>
-        </li>
-        <li class="list-container__list-item">
-          <a href="/orders" class="<%= path && path === '/orders' ? 'active' : '' %>">
-            <span class="list-item__helper"></span>
-            Orders
-          </a>
-        </li>
-        <li class="list-container__list-item">
-          <a href="/admin/add-product" class="<%= path && path === '/admin/add-product' ? 'active' : '' %>">
-            <span class="list-item__helper"></span>
-            Add Product
-          </a>
-        </li>
-        <li class="list-container__list-item">
-          <a href="/admin/product-list" class="<%= path && path === '/admin/product-list' ? 'active' : '' %>">
-            <span class="list-item__helper"></span>
-            Admin Products
-          </a>
-        </li>
-      </ul>
-      <span class="icon-container icon__secondary back" onclick="toggleMenuHandler(this)">
-        <i class="fas fa-chevron-left"></i>
-      </span>
-    </nav>
-    <div class="backdrop" onclick="toggleMenuHandler(this)"></div>
-    <main class="main-content__container">
+        </nav>
+        <button id="settings" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">more_vert</i>
+        </button>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <nav class="mdl-navigation">
+        <a href="/cart" class="mdl-navigation__link <%= path && path === '/cart' ? 'active' : '' %>">
+          <span class="icon-container icon__secondary">
+            <i class="fas fa-shopping-cart"></i>
+          </span>
+        </a>
+        <a href="/" class="mdl-navigation__link <%= path && path === '/' ? 'active' : '' %>">
+          Shop
+        </a>
+        <a href="/catalog" class="mdl-navigation__link <%= path && path === '/catalog' ? 'active' : '' %>">
+          Catalog
+        </a>
+      </nav>
+    </div>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="settings">
+      <a href="/login" disabled class="mdl-menu__item <%= path && path === '/login' ? 'active' : '' %>">
+        Sign In/Up
+      </a>
+      <a href="/admin/product-list" disabled class="mdl-menu__item <%= path && path === '/admin/product-list' ? 'active' : '' %>">
+        Admin Products
+      </a>
+      <a href="/admin/add-product" disabled class="mdl-menu__item <%= path && path === '/admin/add-product' ? 'active' : '' %>">
+        Add Product
+      </a>
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary"
+        onclick="changeThemeHandler(this)">
+        Change Theme
+      </button>
+    </ul>
+    <main class="mdl-layout__content">
+      <div class="page-content">

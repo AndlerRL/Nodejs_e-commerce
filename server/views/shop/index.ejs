@@ -23,31 +23,28 @@
     <h1 class="title">Hot Products!</h1>
     <div class="grid">
         <% products.map(product => { %>
-        <article class="card__product-item">
-          <div class="card__header">
-            <h1 class="title">
+        <article class="mdl-card card__product-item" id="<%= product.id %>">
+          <a class="mdl-card__title mdl-card--expand" style="background: url(<%= product.imageUrl %>) no-repeat" href="/catalog/<%= product.id %>" onclick="productDetailsHandler(<%= product.id %>)">
+            <h2 class="mdl-card__title-text">
               <%= product.title %>
-            </h1>
-          </div>
-          <a class="card__image" href="/catalog/<%= product.id %>" onclick="productDetailsHandler(<%= product.id %>)">
-            <img src="<%= product.imageUrl %>" alt="<%= product.imageUrl %>">
-          </a>
-          <div class="card__content">
-            <h2 class="product__price">
-              $ <%= (product.price).toFixed(2) %>
             </h2>
+          </a>
+          <div class="mdl-card__supporting-text">
+            <h4 class="product__price">
+              $ <%= (product.price).toFixed(2) %>
+            </h4>
             <p class="product__description">
               <%= (product.description).substring(0, 50) %> ...
             </p>
           </div>
-          <div class="card__actions">
+          <div class="mdl-card__actions mdl-card--border">
             <%- include('../includes/add-save.ejs', { product }) %>
           </div>
         </article>
         <% }) %>
-        <h3 class="title">
+        <h5 class="title">
           <a href="/catalog">See all products</a>
-        </h3>
+        </h5>
       </div>
     <% } else { %>
       <h1 class="title">No Products Found!</h1>

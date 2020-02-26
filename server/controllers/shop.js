@@ -1,5 +1,6 @@
 const Product = require('../models/product');
 
+
 exports.getHome = (req, res, next) => {
   Product.findAll().then(products => {
     res.render('shop/index', {
@@ -8,6 +9,13 @@ exports.getHome = (req, res, next) => {
       path: '/',
     });
   }).catch(err => console.error(err));
+}
+
+exports.getLogin = (req, res, next) => {
+  res.render('shop/login', {
+    pageTitle: 'Shop4Any | Login',
+    path: '/login',
+  })
 }
 
 exports.getProducts = (req, res, next) => {
