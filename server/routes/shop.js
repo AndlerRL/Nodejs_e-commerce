@@ -1,4 +1,3 @@
-const path = require('path');
 const express = require('express');
 
 const router = express.Router();
@@ -15,6 +14,7 @@ router.post('/cart-delete-item', shopController.deleteCartItem);
 router.post('/cart-delete', shopController.deleteCart);
 
 router.post('/order-create', shopController.postOrder);
+router.post('/cancel-order', shopController.cancelOrder);
 router.get('/orders', shopController.getOrders);
 
 router.get('/checkout', shopController.getCheckout);

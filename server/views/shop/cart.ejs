@@ -47,7 +47,9 @@
         <% cartTotal = cartTotal + (price * quantity) %>
         <form action="/cart-delete-item" method="post" class="item__actions">
           <input type="hidden" name="id" value="<%= id %>">
-          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--secondary">Delete</button>
+          <button type="submit" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent">
+            <i class="material-icons">close</i>
+          </button>
         </form>
       </li>
       <% }) %>
@@ -71,7 +73,7 @@
     </div>
   </div>
   <div class="cart__summary">
-    <p>Total on Cart: $ <%= cartTotal %></p>
+    <p>Total on Cart: $ <%= cartTotal.toFixed(2) %></p>
   </div>
 </div>
 

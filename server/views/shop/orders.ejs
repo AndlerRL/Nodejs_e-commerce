@@ -3,56 +3,82 @@
 </head>
 
 <%- include('../includes/navigation.ejs') %>
-<div class="cart__container">
-  <div class="cart__item-list__container">
+<div class="order__container">
+  <div class="order__item-list__container">
     <% if (orders.length <= 0) { %>
     <h1 class="title">
       Nothing Here!
     </h1>
     <% } else { %>
     <ul class="item-list__wrapper">
-      <% orders.forEach(({ id, products }, order) => { %>
-      <li class="item-list__item">
-        <div class="item__body">
-          <div class="item-body__price">
-            <span class="item-price__title">
+      <% orders.forEach(({ id, products }) => { %>
+      <% let total = 0; %>
+      <li class="item-list__item-order">
+        <div class="item__body-order">
+          <div class="item-body__id">
+            <span class="item-id__title">
               ID
             </span>
-            <span class="item-price__price">
+            <span class="item-id__id">
               <%= id %>
             </span>
           </div>
-          <div class="item-body__qty">
-            <span class="item-qty__title">
+          <div class="item-body__items" style="height: 66.66%">
+            <span class="item-items__title">
               order items
             </span>
-            <% products.forEach(item => { %>
-              <span class="item-qty__qty">
-                <%= item.title %> [<%= item.orderItem.quantity %>]
+            <span class="item-items__container">
+              <span class="items-container__wrapper">
+                <span class="items-container__title">
+                  PRODUCT
+                </span>
+                <% products.forEach(({ title }) => { %>
+                <span class="item-items__items">
+                  <%= title %>
+                </span>
+                <% }) %>
               </span>
-            <% }) %>
+              <d class="items-container__wrapper">
+                <span class="items-container__title">
+                  QTY
+                </span>
+                <% products.forEach(({ orderItem: { quantity }, price }) => { %>
+                <% total = total + (price * quantity) %>
+                <div class="item-items__qty">
+                  <%= quantity %>
+                </div>
+                <% }) %>
+            </span>
+            </span>
           </div>
           <div class="item-body__total">
             <span class="item-total__title">
               total
             </span>
             <span class="item-total__total">
-              $ </p>
+              $ <%= total.toFixed(2) %>
             </span>
           </div>
         </div>
 
-        <form action="/cart-delete-item" method="post" class="item__actions">
-          <input type="hidden" name="id" value="">
-          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--secondary">Delete</button>
+        <form action="/cancel-order" method="post" class="item__actions">
+          <input type="hidden" name="id" value="<%= id %>">
+          <button type="submit"
+            class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent">
+            <i class="material-icons">close</i>
+          </button>
+        </form>
+        <form action="/checkout" method="get" class="item__actions">
+          <input type="hidden" name="id" value="<%= id %>">
+          <button type="submit"
+            class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--primary">
+            <i class="material-icons">check</i>
+          </button>
         </form>
       </li>
       <% }) %>
     </ul>
     <% } %>
-    <a href="/checkout" class="button primary">
-      Go to checkout
-    </a>
   </div>
 </div>
 <%- include('../includes/end.ejs') %>

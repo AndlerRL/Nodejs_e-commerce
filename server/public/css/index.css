@@ -29,18 +29,18 @@ button,
     text-transform: capitalize !important; }
     .theme-light button.mdl-button--primary, .theme-light
     .button.mdl-button--primary {
-      background-color: #f9fbe7 !important; }
+      background-color: #e8eaf6 !important; }
       .theme-light button.mdl-button--primary:hover, .theme-light
       .button.mdl-button--primary:hover {
         color: #37474f !important;
-        background-color: #f0f4c3 !important; }
+        background-color: #c5cae9 !important; }
     .theme-light button.mdl-button--secondary, .theme-light
     .button.mdl-button--secondary {
       background-color: #fafafa !important; }
       .theme-light button.mdl-button--secondary:hover, .theme-light
       .button.mdl-button--secondary:hover {
         color: #37474f !important;
-        background-color: #e0f7fa !important; }
+        background-color: #e0f2f1 !important; }
     .theme-light button.large, .theme-light
     .button.large {
       padding: 16px 32px;
@@ -54,7 +54,7 @@ button,
       margin-right: 0.75rem !important; }
       .theme-light button .icon-container svg, .theme-light
       .button .icon-container svg {
-        color: #4dd0e1 !important; }
+        color: #4db6ac !important; }
   .theme-dark button, .theme-dark
   .button {
     color: #eeeeee !important;
@@ -117,25 +117,25 @@ input[type="file"] {
     align-items: center;
     justify-content: space-evenly;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 1px;
     text-align: center;
     border: 5px solid transparent; }
     input[type="file"] + label* {
       pointer-events: none; }
     .theme-light input[type="file"] + label {
       color: #212121;
-      background-color: #d4e157; }
+      background-color: #5c6bc0; }
       .theme-light input[type="file"] + label:hover {
-        background-color: #e6ee9c; }
+        background-color: #9fa8da; }
     .theme-dark input[type="file"] + label {
       color: #f5f5f5;
       background-color: #607d8b; }
       .theme-dark input[type="file"] + label:hover {
         background-color: #455a64; }
   .theme-light input[type="file"]:focus + label {
-    border: 5px solid #4dd0e1;
+    border: 5px solid #4db6ac;
     color: #212121;
-    background-color: #e6ee9c; }
+    background-color: #9fa8da; }
   .theme-dark input[type="file"]:focus + label {
     border: 5px solid #9e9e9e;
     color: #f5f5f5;
@@ -160,7 +160,7 @@ input[type="file"] {
     margin: 1rem 1.25%;
     padding: 4px; }
     .theme-light .img-preview__container .img-preview__item-container {
-      background-color: #f0f4c3; }
+      background-color: #c5cae9; }
     .theme-dark .img-preview__container .img-preview__item-container {
       background-color: #37474f; }
     .img-preview__container .img-preview__item-container .img-preview__item {
@@ -170,7 +170,7 @@ input[type="file"] {
       max-height: 83.333%;
       margin: auto; }
       .theme-light .img-preview__container .img-preview__item-container .img-preview__item {
-        background-color: #e6ee9c; }
+        background-color: #9fa8da; }
       .theme-dark .img-preview__container .img-preview__item-container .img-preview__item {
         background-color: #455a64; }
     .img-preview__container .img-preview__item-container figcaption {
@@ -230,9 +230,9 @@ span.icon-container {
   cursor: pointer;
   transition: color 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 50ms; }
   .theme-light span.icon-container.icon__primary {
-    color: #cddc39; }
+    color: #3f51b5; }
     .theme-light span.icon-container.icon__primary:hover {
-      color: #d4e157; }
+      color: #5c6bc0; }
   .theme-dark span.icon-container.icon__primary {
     color: #78909c; }
     .theme-dark span.icon-container.icon__primary:hover {
@@ -240,9 +240,9 @@ span.icon-container {
   span.icon-container.icon__primary > i {
     font-weight: lighter; }
   .theme-light span.icon-container.icon__secondary {
-    color: #26c6da; }
+    color: #26a69a; }
     .theme-light span.icon-container.icon__secondary:hover {
-      color: #4dd0e1; }
+      color: #4db6ac; }
   .theme-dark span.icon-container.icon__secondary {
     color: #bdbdbd; }
     .theme-dark span.icon-container.icon__secondary:hover {
@@ -275,8 +275,8 @@ span.icon-container {
       border-top-right-radius: 0px !important; }
       .theme-light .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu__outline {
         color: #212121;
-        background-color: #f0f4c3;
-        border-top: 5px solid #e6ee9c; }
+        background-color: #c5cae9;
+        border-top: 5px solid #9fa8da; }
       .theme-dark .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu__outline {
         color: #f5f5f5;
         background-color: #37474f;
@@ -294,7 +294,7 @@ span.icon-container {
         .theme-light .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu .mdl-menu__item {
           color: #212121 !important; }
           .theme-light .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu .mdl-menu__item.active, .theme-light .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu .mdl-menu__item:active, .theme-light .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu .mdl-menu__item:hover {
-            color: #26c6da !important; }
+            color: #26a69a !important; }
         .theme-dark .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu .mdl-menu__item {
           color: #f5f5f5 !important; }
           .theme-dark .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu .mdl-menu__item.active, .theme-dark .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu .mdl-menu__item:active, .theme-dark .app-container .mdl-menu__container.is-upgraded.is-visible .mdl-menu .mdl-menu__item:hover {
@@ -306,9 +306,9 @@ span.icon-container {
       outline: none !important;
       user-select: none !important; }
     .theme-light .app-container .mdl-layout__header {
-      background-color: #f0f4c3 !important;
+      background-color: #c5cae9 !important;
       color: #212121 !important;
-      border-bottom: 5px solid #e6ee9c !important; }
+      border-bottom: 5px solid #9fa8da !important; }
     .theme-dark .app-container .mdl-layout__header {
       background-color: #37474f !important;
       color: #f5f5f5 !important;
@@ -332,7 +332,7 @@ span.icon-container {
       .theme-dark .app-container .mdl-layout__header a {
         color: #f5f5f5 !important; }
       .theme-light .app-container .mdl-layout__header a:active, .theme-light .app-container .mdl-layout__header a.active, .theme-light .app-container .mdl-layout__header a:hover {
-        color: #26c6da !important; }
+        color: #26a69a !important; }
       .theme-dark .app-container .mdl-layout__header a:active, .theme-dark .app-container .mdl-layout__header a.active, .theme-dark .app-container .mdl-layout__header a:hover {
         color: #bdbdbd !important; }
   .app-container .mdl-layout__drawer {
@@ -351,15 +351,15 @@ span.icon-container {
         .theme-light .app-container .mdl-layout__drawer .mdl-navigation a {
           color: #212121 !important; }
           .theme-light .app-container .mdl-layout__drawer .mdl-navigation a:hover {
-            background-color: #80deea !important; }
+            background-color: #80cbc4 !important; }
         .theme-dark .app-container .mdl-layout__drawer .mdl-navigation a {
           color: #f5f5f5 !important; }
           .theme-dark .app-container .mdl-layout__drawer .mdl-navigation a:hover {
             background-color: #757575 !important; }
     .theme-light .app-container .mdl-layout__drawer {
-      background-color: #f0f4c3 !important;
+      background-color: #c5cae9 !important;
       color: #212121 !important;
-      border-right: 2px solid #dce775 !important; }
+      border-right: 2px solid #7986cb !important; }
     .theme-dark .app-container .mdl-layout__drawer {
       background-color: #37474f !important;
       color: #f5f5f5 !important;
@@ -417,7 +417,7 @@ span.icon-container {
     padding: 16px 32px; }
     .theme-light .app-container .product-form {
       box-shadow: 0 4px 5px 0 #2221, 0 1px 10px 0 #2221, 0 2px 4px -1px #2223;
-      background-color: #e0f7fa; }
+      background-color: #e0f2f1; }
     .theme-dark .app-container .product-form {
       box-shadow: none;
       background-color: #424242; }
@@ -432,7 +432,7 @@ span.icon-container {
     padding: 16px; }
     .theme-light .app-container .checkout-form {
       box-shadow: 0 4px 5px 0 #2221, 0 1px 10px 0 #2221, 0 2px 4px -1px #2223;
-      background-color: #e0f7fa; }
+      background-color: #e0f2f1; }
     .theme-dark .app-container .checkout-form {
       box-shadow: none;
       background-color: #424242; }
@@ -464,7 +464,7 @@ span.icon-container {
       align-items: center;
       justify-content: flex-start;
       flex-direction: column;
-      min-height: 100vh; }
+      height: auto !important; }
     .app-container .mdl-layout__content .main-content__hero-container {
       width: 100%;
       height: 100vh;
@@ -484,7 +484,7 @@ span.icon-container {
         align-items: center;
         position: relative; }
         .theme-light .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover {
-          background: radial-gradient(#26c6daa0 33%, #e0f7faa0 100%), url("../assets/images/tech-gadgets.jpg") center no-repeat; }
+          background: radial-gradient(#26a69aa0 33%, #e0f2f1a0 100%), url("../assets/images/tech-gadgets.jpg") center no-repeat; }
         .theme-dark .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover {
           background: radial-gradient(#bdbdbda0 33%, #424242a0 100%), url("../assets/images/tech-gadgets.jpg") center no-repeat; }
         .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down {
@@ -494,10 +494,10 @@ span.icon-container {
           cursor: pointer;
           transition: color 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 50ms; }
           .theme-light .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down {
-            color: #dce775; }
+            color: #7986cb; }
             .theme-light .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down:hover {
               opacity: 1 !important;
-              color: #d4e157; }
+              color: #5c6bc0; }
           .theme-dark .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down {
             color: #546e7a; }
             .theme-dark .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down:hover {
@@ -508,6 +508,7 @@ span.icon-container {
       max-width: 1200px;
       margin: 3.5rem auto; }
   .app-container .footer__container {
+    position: relative;
     padding: 64px 32px 16px;
     display: flex;
     flex-direction: column;
@@ -515,8 +516,8 @@ span.icon-container {
     justify-content: space-between;
     width: 100%; }
     .theme-light .app-container .footer__container {
-      background-color: #f0f4c3;
-      border-top: 5px solid #e6ee9c; }
+      background-color: #c5cae9;
+      border-top: 5px solid #9fa8da; }
     .theme-dark .app-container .footer__container {
       background-color: #37474f;
       border-top: 5px solid #455a64; }
@@ -525,7 +526,6 @@ span.icon-container {
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: 7rem;
       max-width: 1200px; }
     .app-container .footer__container .footer__credits {
       font-weight: lighter;
@@ -554,12 +554,12 @@ span.icon-container {
       max-width: 91.666%;
       padding: 32px;
       box-shadow: -3px 3px 5px 5px #2221, -5px 5px 10px 3px #2222, -5px 5px 30px #2223;
-      border-radius: 3px; }
+      border-radius: 1px; }
       .theme-light .app-container .error-wrapper .error-container, .theme-light
       .app-container .error-wrapper .confirm-container, .theme-light
       .app-container .confirm-wrapper .error-container, .theme-light
       .app-container .confirm-wrapper .confirm-container {
-        background-color: #e0f7fa; }
+        background-color: #e0f2f1; }
       .theme-dark .app-container .error-wrapper .error-container, .theme-dark
       .app-container .error-wrapper .confirm-container, .theme-dark
       .app-container .confirm-wrapper .error-container, .theme-dark

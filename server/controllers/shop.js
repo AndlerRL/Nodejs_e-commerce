@@ -158,7 +158,8 @@ exports.deleteCart = (req, res, next) => {
 exports.postOrder = (req, res, next) => {
   let fetchedCart;
 
-  req.user.getCart()
+  req.user
+    .getCart()
     .then(cart =>{
       fetchedCart = cart;
 
@@ -168,14 +169,15 @@ exports.postOrder = (req, res, next) => {
       req.user
         .createOrder()
         .then(order => 
-          order.addProducts(products.map(p => {
+          order.addProducts(
+            products.map(p => {
               p.orderItem = {
-                ...p.orderItem,
                 quantity: p.cartItem.quantity
               };
               
               return p;
-            }))
+            })
+          )
         )
         .catch(err => console.log(err))
     )
@@ -185,7 +187,7 @@ exports.postOrder = (req, res, next) => {
     .then(result => 
       res.redirect('/orders')
     )
-    .catch(err => console.log.apply(err));
+    .catch(err => console.log(err));
 };
 
 exports.getOrders = (req, res, next) => {
@@ -202,6 +204,28 @@ exports.getOrders = (req, res, next) => {
     })
     .catch(err => console.log(err));
 }
+
+exports.cancelOrder = (req, res, next) => {
+  const { id } = req.body;
+
+  req.user
+    .getOrders({
+      where: { id }
+    })
+    .then(order => {
+      console.log('––––––––– ORDER TO DESTROY –––––––––', order)
+      return order[0].destroy()
+    })
+    .then(result => {
+      res.render('includes/confirm', {
+        pageTitle: `Shop4Any | Confirm`,
+        path: `/cancel-order`,
+        redirect: `/catalog`,
+        background: `confirm.jpg`
+      });
+    })
+    .catch(err => console.log(err));
+};
 
 exports.getCheckout = (req, res, next) => {
   Product.findAll().then(products => {
