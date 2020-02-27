@@ -1,17 +1,31 @@
 const root = document.getElementById('app-root');
-const goDown = document.getElementById('go-down');
+const go = document.getElementsByClassName('mdl-layout__content')[0];
 const settings = document.getElementById('settings');
 const menu = document.getElementById('menu');
 const fileUpload = document.querySelectorAll('input[type="file"]');
 
 let theme = localStorage.getItem('user-theme');
-let product_id = null;
 
 theme = theme
   ? theme
-  : 'theme-light';
+  : null;
 
 root.classList.add(theme);
+
+window.addEventListener('load', () => {
+  const { matchMedia } = this;
+  if ((matchMedia('(prefers-color-scheme: dark)').matches)) {
+    if (!theme) {
+      root.classList.add('theme-dark')
+      localStorage.setItem('user-theme', 'theme-dark')
+    }
+  } else {
+    if (!theme) {
+      root.classList.add('theme-light')
+      localStorage.setItem('user-theme', 'theme-light')
+    }
+  }
+})
 
 function changeThemeHandler () {
   const dark = root.classList.contains('theme-dark');
@@ -27,62 +41,15 @@ function changeThemeHandler () {
   }
 }
 
-if (goDown) {
-  goDown.addEventListener('click', () => {
-    window.scroll({
-      top: window.innerHeight,
-      left: 0,
-      behavior: 'smooth'
-    })
-  });
-}
-
-settings.addEventListener('click', function () {
-  const opt = document.getElementsByClassName('settings-container')[0];
-
-  if (opt.classList.contains('Show-Settings')) {
-    opt.classList.toggle('Hide-Settings');
-    this.classList.toggle('Half-Spin-Return');
-  } else {
-    opt.classList.toggle('Show-Settings');
-    this.classList.toggle('Half-Spin');
-  }
-});
-
-function productDetailsHandler(e) {
-  localStorage.setItem('product_id', e.id);
-  product_id = e.id;
-
-  window.location.pathname = '/product-detail';
-}
-
-function toggleMenuHandler () {
-  const opt = document.getElementsByClassName('sidedrawer-container')[0];
-  const menu = document.getElementsByClassName('menu')[0];
-  const backdrop = document.getElementsByClassName('backdrop')[0];
-
-  if (opt.classList.contains('Show-Menu')) {
-    opt.classList.toggle('Hide-Menu');
-    backdrop.classList.toggle('Show-Backdrop');
-  } else {
-    opt.classList.toggle('Show-Menu');
-    backdrop.classList.toggle('Show-Backdrop');
-  }
-
-  if (menu.children[0].classList.contains('fa-bars')) {
-    const close = document.createElement('i');
-
-    close.setAttribute('class', 'fas fa-times-circle');
-    menu.removeChild(menu.children[0]);
-    menu.appendChild(close);
-  } else {
-    const open = document.createElement('i');
-    
-    open.setAttribute('class', 'fas fa-bars');
-    menu.removeChild(menu.children[0]);
-    menu.appendChild(open);
-  }
-}
+function goDown () {
+  const { innerHeight } = window;
+  
+  go.scroll({
+    top: innerHeight,
+    left: 0,
+    behavior: 'smooth'
+  })
+};
 
 function returnHomeHandler () {
   window.location.href = '/';

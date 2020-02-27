@@ -1,15 +1,16 @@
 <%- include('../includes/head.ejs') %>
-  <link rel="stylesheet" href="/css/shop.css">
+<link rel="stylesheet" href="/css/shop.css">
 </head>
 <%- include('../includes/navigation.ejs') %>
-<div class="page-content">
+<div class="wrapper">
   <h2 class="title">
     Admin Catalog
   </h2>
   <% if (products.length > 0) { %>
-    <div class="grid">
-      <% products.map(product => { %>
-      <article class="mdl-card card__product-item">
+  <ul class="grid">
+    <% products.map(product => { %>
+    <li>
+      <div class="mdl-card card__product-item">
         <div class="mdl-card__title mdl-card--expand" style="background: url(<%= product.imageUrl %>) no-repeat">
           <h2 class="mdl-card__title-text">
             <%= product.title %>
@@ -24,21 +25,24 @@
           </p>
         </div>
         <div class="mdl-card__actions mdl-card--border">
-          <a href="/admin/edit-product/<%= product.id %>?edit=true" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--secondary">
+          <a href="/admin/edit-product/<%= product.id %>?edit=true"
+            class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--secondary">
             Edit
           </a>
           <form action="/admin/delete-product" method="POST">
-            <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--secondary">
+            <button type="submit"
+              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--secondary">
               Delete
             </button>
             <input type="hidden" name="id" value="<%= product.id %>">
           </form>
         </div>
-      </article>
-      <% }) %>
-    </div>
+      </div>
+    </li>
+    <% }) %>
+  </ul>
   <% } else { %>
-    <h1 class="title">No Products Found!</h1>
+  <h1 class="title">No Products Found!</h1>
   <% } %>
 </div>
 <%- include('../includes/end.ejs') %>

@@ -2,29 +2,25 @@
 </head>
 
 <%- include('../includes/navigation.ejs') %>
+<div class="login__container">
   <div class="wrapper">
     <form action="/login-callback" method="POST" class="checkout-form">
-      <div class="form-control__wrapper">
-        <div class="form-control__inner-wrapper">
-          <div class="form-control">
-            <label for="email">
-              Email
-            </label>
-            <input type="text" name="email" id="email" placeholder="example@mail.com">
-          </div>
-        </div>
-        <div class="form-control__inner-wrapper">
-          <div class="form-control">
-            <label for="password">
-              Password
-            </label>
-            <input type="text" name="password" id="password" placeholder="Your password here">
-          </div>
-        </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="email" id="email">
+        <label class="mdl-textfield__label" for="email">
+          email
+        </label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="password" name="password" id="password">
+        <label class="mdl-textfield__label" for="password">
+          password
+        </label>
       </div>
       <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit">
         Login
       </button>
     </form>
   </div>
+</div>
 <%- include('../includes/end.ejs') %>

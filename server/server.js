@@ -14,8 +14,6 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const error = require('./controllers/error');
 
-const router = express.Router();
-
 const app = express();
 
 const PORT = process.env.PORT || 8000;

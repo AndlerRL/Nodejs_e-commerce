@@ -75,13 +75,41 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display SC', serif;
 }
 
+.mdl-textfield.mdl-textfield--floating-label {
+  width: 100%;
+  margin: 0 auto;
+
+  label {
+    @include themify($themes) {
+      color: themed('textColor') !important;
+      opacity: 0.5;
+    }
+  }
+
+  &.is-focused {
+    label {
+      @include themify($themes) {
+        color: themed('textColor') !important;
+        opacity: 1;
+      }
+    }
+  }
+}
+
 label,
 input,
 textarea {
   display: block;
   width: 100%;
   box-sizing: border-box;
+  font-weight: lighter !important;
+  letter-spacing: 1px;
+  line-height: 1.5;
   transition: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 50ms;
+}
+
+label {
+  text-transform: uppercase !important;
 }
 
 input[type="file"] {
@@ -95,6 +123,8 @@ input[type="file"] {
   + label {
     font-size: $medium;
     font-weight: 600;
+    letter-spacing: 1px;
+    padding: 16px 0px;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -106,6 +136,10 @@ input[type="file"] {
 
     &* {
       pointer-events: none;
+    }
+
+    span {
+      color: #f5f5f5;
     }
 
     @include themify($themes) {
@@ -171,34 +205,6 @@ input[type="file"] {
   figcaption {
     padding: 8px 0;
   }
-}
-
-label {
-  padding: 16px 0;
-  letter-spacing: 1.5px;
-
-  span {
-    color: #f44;
-  }
-}
-
-input,
-textarea {
-  @include themify($themes) {
-    border: 2px solid transparent;
-    border-bottom-color: themed('textColor');
-
-    &:focus,
-    &:active {
-      border-color: themed('textColor');
-    }
-  }
-
-  border-radius: 2px;
-  letter-spacing: 1px;
-  font-weight: lighter;
-  outline: none;
-  padding: 8px;
 }
 
 a {
@@ -393,8 +399,10 @@ span.icon-container {
   }
 
   .logo-alt__container {
-    width: 45vw;
-    height: 45vh;
+    width: 50vw;
+    height: 40vh;
+    max-width: 600px;
+    max-height: 600px;
     user-select: none;
 
     .logo-alt {
@@ -410,45 +418,16 @@ span.icon-container {
     font-weight: lighter;
     user-select: none;
 
-    &.title__head,
-    &.title__head-sub {
-      font-weight: bolder;
-      width: 91.666%;
-      max-width: 800px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #fafafa;
-      text-shadow: -1px 1px #222,
-        -2px 2px #222,
-        -3px 3px #222,
-        -4px 4px #222,
-        -5px 5px #222,
-        -6px 6px #222,
-        -7px 7px #222,
-        -8px 8px #fafafa;
-      text-align: center;
-    }
-
     &.title__head {
-      font-family: 'Playfair Display SC', serif;
-      font-size: 10vw;
-
-      @media screen and (min-width: $tablet) {
-        font-size: 9vw;
-      }
-
-      @media screen and (min-width: $allDevices) {
-        font-size: 5vw;
-      }
-    }
-
-    &.title__head-sub {
+      width: 75%;
+      max-width: 400px;
+      letter-spacing: 3px;
+      line-height: 1.75;
+      text-transform: uppercase;
+      text-align: center;
       font-size: 5vw;
-      color: #222;
-      text-transform: capitalize;
-      font-family: 'Oregano', cursive;
+      font-family: 'Oregano', sans-serif;
       font-weight: 200;
-      text-shadow: none;
 
       @media screen and (min-width: $tablet) {
         font-size: 4vw;
@@ -523,16 +502,12 @@ span.icon-container {
   }
 
   .mdl-layout__content {
-    min-width: 100% !important;
-
-    .page-content {
-      min-width: 100% !important;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-direction: column;
-      height: auto !important;
-    }
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%;
 
     .main-content__hero-container {
       width: 100%;
@@ -545,8 +520,8 @@ span.icon-container {
         height: 100vh;
 
         @include themify($themes) {
-          background: radial-gradient(themed('secondary500')+ a0 33%, themed('secondary100')+ a0 100%),
-            url('../assets/images/tech-gadgets.jpg') center no-repeat;
+          background: radial-gradient(themed('secondary50')+ a0 100%, themed('secondary500')+ a0 100%),
+            url('../assets/images/tech-gadgets.jpg') center no-repeat fixed;
         }
         image-rendering: crisp-edges;
         background-origin: border-box;
@@ -567,11 +542,11 @@ span.icon-container {
           transition: color .25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 50ms;
 
           @include themify($themes) {
-            color: themed('primary300');
+            color: themed('secondary500');
             
             &:hover {
               opacity: 1 !important;
-              color: themed('primary400');
+              color: themed('secondary400');
             }
           }
 
@@ -583,6 +558,20 @@ span.icon-container {
       width: 91.666%;
       max-width: 1200px;
       margin: 3.5rem auto;
+    }
+
+    .login__container {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @include themify($themes) {
+        background: radial-gradient(circle at -100% -100%, themed('secondary500') 25%, themed('secondary400') 50%, themed('secondary300') 75%, themed('secondary200') 100%),
+          radial-gradient(circle at 100% 100%, themed('primary500') 25%, themed('primary400') 50%, themed('primary300') 75%, themed('primary200') 100%);
+      }
     }
   }
 

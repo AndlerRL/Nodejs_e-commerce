@@ -94,13 +94,35 @@ button,
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display SC', serif; }
 
+.mdl-textfield.mdl-textfield--floating-label {
+  width: 100%;
+  margin: 0 auto; }
+  .theme-light .mdl-textfield.mdl-textfield--floating-label label {
+    color: #212121 !important;
+    opacity: 0.5; }
+  .theme-dark .mdl-textfield.mdl-textfield--floating-label label {
+    color: #f5f5f5 !important;
+    opacity: 0.5; }
+  .theme-light .mdl-textfield.mdl-textfield--floating-label.is-focused label {
+    color: #212121 !important;
+    opacity: 1; }
+  .theme-dark .mdl-textfield.mdl-textfield--floating-label.is-focused label {
+    color: #f5f5f5 !important;
+    opacity: 1; }
+
 label,
 input,
 textarea {
   display: block;
   width: 100%;
   box-sizing: border-box;
+  font-weight: lighter !important;
+  letter-spacing: 1px;
+  line-height: 1.5;
   transition: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 50ms; }
+
+label {
+  text-transform: uppercase !important; }
 
 input[type="file"] {
   width: 0.1px;
@@ -112,6 +134,8 @@ input[type="file"] {
   input[type="file"] + label {
     font-size: 14px;
     font-weight: 600;
+    letter-spacing: 1px;
+    padding: 16px 0px;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -122,6 +146,8 @@ input[type="file"] {
     border: 5px solid transparent; }
     input[type="file"] + label* {
       pointer-events: none; }
+    input[type="file"] + label span {
+      color: #f5f5f5; }
     .theme-light input[type="file"] + label {
       color: #212121;
       background-color: #5c6bc0; }
@@ -177,36 +203,6 @@ input[type="file"] {
       height: 16.666%; }
   .img-preview__container figcaption {
     padding: 8px 0; }
-
-label {
-  padding: 16px 0;
-  letter-spacing: 1.5px; }
-  label span {
-    color: #f44; }
-
-input,
-textarea {
-  border-radius: 2px;
-  letter-spacing: 1px;
-  font-weight: lighter;
-  outline: none;
-  padding: 8px; }
-  .theme-light input, .theme-light
-  textarea {
-    border: 2px solid transparent;
-    border-bottom-color: #212121; }
-    .theme-light input:focus, .theme-light input:active, .theme-light
-    textarea:focus, .theme-light
-    textarea:active {
-      border-color: #212121; }
-  .theme-dark input, .theme-dark
-  textarea {
-    border: 2px solid transparent;
-    border-bottom-color: #f5f5f5; }
-    .theme-dark input:focus, .theme-dark input:active, .theme-dark
-    textarea:focus, .theme-dark
-    textarea:active {
-      border-color: #f5f5f5; }
 
 a {
   text-decoration: none;
@@ -364,8 +360,10 @@ span.icon-container {
       color: #f5f5f5 !important;
       border-right: 2px solid #546e7a !important; }
   .app-container .logo-alt__container {
-    width: 45vw;
-    height: 45vh;
+    width: 50vw;
+    height: 40vh;
+    max-width: 600px;
+    max-height: 600px;
     user-select: none; }
     .app-container .logo-alt__container .logo-alt {
       background: url(../assets/images/logo.svg) center no-repeat;
@@ -376,36 +374,21 @@ span.icon-container {
     font-family: 'Karla', sans-serif;
     font-weight: lighter;
     user-select: none; }
-    .app-container .title.title__head, .app-container .title.title__head-sub {
-      font-weight: bolder;
-      width: 91.666%;
-      max-width: 800px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #fafafa;
-      text-shadow: -1px 1px #222, -2px 2px #222, -3px 3px #222, -4px 4px #222, -5px 5px #222, -6px 6px #222, -7px 7px #222, -8px 8px #fafafa;
-      text-align: center; }
     .app-container .title.title__head {
-      font-family: 'Playfair Display SC', serif;
-      font-size: 10vw; }
-      @media screen and (min-width: 600px) {
-        .app-container .title.title__head {
-          font-size: 9vw; } }
-      @media screen and (min-width: 771px) {
-        .app-container .title.title__head {
-          font-size: 5vw; } }
-    .app-container .title.title__head-sub {
+      width: 75%;
+      max-width: 400px;
+      letter-spacing: 3px;
+      line-height: 1.75;
+      text-transform: uppercase;
+      text-align: center;
       font-size: 5vw;
-      color: #222;
-      text-transform: capitalize;
-      font-family: 'Oregano', cursive;
-      font-weight: 200;
-      text-shadow: none; }
+      font-family: 'Oregano', sans-serif;
+      font-weight: 200; }
       @media screen and (min-width: 600px) {
-        .app-container .title.title__head-sub {
+        .app-container .title.title__head {
           font-size: 4vw; } }
       @media screen and (min-width: 771px) {
-        .app-container .title.title__head-sub {
+        .app-container .title.title__head {
           font-size: 2vw; } }
   .app-container .product-form {
     width: 30rem;
@@ -456,14 +439,12 @@ span.icon-container {
       .app-container .checkout-form .form-control__wrapper .form-control {
         width: 100%; }
   .app-container .mdl-layout__content {
-    min-width: 100% !important; }
-    .app-container .mdl-layout__content .page-content {
-      min-width: 100% !important;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-direction: column;
-      height: auto !important; }
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    height: 100%; }
     .app-container .mdl-layout__content .main-content__hero-container {
       width: 100%;
       height: 100vh;
@@ -483,9 +464,9 @@ span.icon-container {
         align-items: center;
         position: relative; }
         .theme-light .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover {
-          background: radial-gradient(#26a69aa0 33%, #e0f2f1a0 100%), url("../assets/images/tech-gadgets.jpg") center no-repeat; }
+          background: radial-gradient(#fafafaa0 100%, #26a69aa0 100%), url("../assets/images/tech-gadgets.jpg") center no-repeat fixed; }
         .theme-dark .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover {
-          background: radial-gradient(#bdbdbda0 33%, #424242a0 100%), url("../assets/images/tech-gadgets.jpg") center no-repeat; }
+          background: radial-gradient(#212121a0 100%, #bdbdbda0 100%), url("../assets/images/tech-gadgets.jpg") center no-repeat fixed; }
         .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down {
           position: absolute;
           font-size: 64px;
@@ -493,19 +474,30 @@ span.icon-container {
           cursor: pointer;
           transition: color 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 50ms; }
           .theme-light .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down {
-            color: #7986cb; }
+            color: #26a69a; }
             .theme-light .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down:hover {
               opacity: 1 !important;
-              color: #5c6bc0; }
+              color: #4db6ac; }
           .theme-dark .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down {
-            color: #546e7a; }
+            color: #bdbdbd; }
             .theme-dark .app-container .mdl-layout__content .main-content__hero-container > .hero-container__cover > .hero-cover__go-down:hover {
               opacity: 1 !important;
-              color: #607d8b; }
+              color: #9e9e9e; }
     .app-container .mdl-layout__content .wrapper {
       width: 91.666%;
       max-width: 1200px;
       margin: 3.5rem auto; }
+    .app-container .mdl-layout__content .login__container {
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      .theme-light .app-container .mdl-layout__content .login__container {
+        background: radial-gradient(circle at -100% -100%, #26a69a 25%, #4db6ac 50%, #80cbc4 75%, #b2dfdb 100%), radial-gradient(circle at 100% 100%, #3f51b5 25%, #5c6bc0 50%, #7986cb 75%, #9fa8da 100%); }
+      .theme-dark .app-container .mdl-layout__content .login__container {
+        background: radial-gradient(circle at -100% -100%, #bdbdbd 25%, #9e9e9e 50%, #757575 75%, #616161 100%), radial-gradient(circle at 100% 100%, #78909c 25%, #607d8b 50%, #546e7a 75%, #455a64 100%); }
   .app-container .footer__container {
     position: relative;
     padding: 64px 32px 16px;
